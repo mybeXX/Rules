@@ -66,6 +66,7 @@ custom_proxy_group=🤖 DeepL`select`.*`[]DIRECT
 custom_proxy_group=🎵 TikTok`select`[]🇭🇰 香港节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
 custom_proxy_group=🎥 Disney+`select`[]🇭🇰 香港节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
 custom_proxy_group=📽️ PrimeVideo`select`[]🇭🇰 香港节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
+custom_proxy_group=📺 巴哈姆特`select`[]DIRECT`[]🚀 节点选择`[]🚀 手动切换
 custom_proxy_group=🍑 DMMCOJP`select`[]🇯🇵 日本节点
 custom_proxy_group=🎮 Nintendo`select`[]🚀 节点选择`.*
 custom_proxy_group=🌍 国外媒体`select`[]DIRECT`[]🚀 节点选择`[]🚀 手动切换`[]🇭🇰 香港节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇭🇰 香港节点-自动`[]🇸🇬 狮城节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动
