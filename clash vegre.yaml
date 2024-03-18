@@ -1,0 +1,81 @@
+# 代理集合（获取机场订阅链接内的所有节点）
+proxy-providers:
+  🛫 我的机场 1:
+    type: http
+    # 机场订阅链接，使用 Clash 链接
+    url: "https://v2.ixlmo.com/api/v1/client/subscribe?token=b31df5c6eb045f044c8d455887ff4338&flag=clash"
+    path: ./proxies/airport1.yaml
+    interval: 43200
+    # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
+    # filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
+    health-check:
+      enable: true
+      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
+      lazy: true
+      url: "http://detectportal.firefox.com/success.txt"
+      interval: 600
+
+  🛫 我的机场 2:
+    type: http
+    url: "https://1.xn--xc3ao8r.top/api/v1/client/subscribe?token=5270303eda704173037e717915a37f60&flag=clash"
+    path: ./proxies/airport2.yaml
+    interval: 43200
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
+    health-check:
+      enable: true
+      lazy: true
+      url: "http://detectportal.firefox.com/success.txt"
+      interval: 600
+
+# 单个出站代理节点（以 vless 为例）
+proxies:
+    null
+
+# 策略组
+proxy-groups:
+  # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点,  🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  # Speedtest 测速网站：选择`🎯 全球直连` 为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
+  - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
+  - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
+
+  # ----------------国家或地区策略组---------------------
+  # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
+  # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
+  - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
+  # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, include-all-providers: true, filter: "(?i)日本|jp|japan"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
+
+# 规则
+rules:
+  # 自定义规则优先放前面
+  - GEOSITE,category-ads-all,🛑 广告拦截
+  # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
+  - DST-PORT,6881-6889,🎯 全球直连
+  - GEOSITE,private,🔒 私有网络
+  - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
+  - GEOSITE,apple-cn,🍎 苹果服务
+  - GEOSITE,google-cn,📢 谷歌服务
+  - GEOSITE,category-games@cn,🎮 游戏平台
+  - GEOSITE,speedtest,📈 网络测速
+  - GEOSITE,geolocation-!cn,🪜 代理域名
+  - GEOSITE,cn,🔗 直连域名
+  - GEOIP,telegram,📲 电报消息
+  - GEOIP,private,🔒 私有网络,no-resolve
+  - GEOIP,cn,🇨🇳 国内 IP
+  - MATCH,🐟 漏网之鱼
