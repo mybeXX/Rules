@@ -11,20 +11,24 @@ proxy-providers:
       url: "http://detectportal.firefox.com/success.txt"
       interval: 600
 
-# 单个出站代理节点（以 vless 为例）
 proxies:
     
 
 # 策略组
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点,  🇹🇼 台湾节点]}
-  - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点,  🇹🇼 台湾节点, .*]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 📲 国际社交, type: select, proxies: [🚀 节点选择]}
+  - {name: YouTube, type: select, proxies: [🚀 节点选择]}
+  - {name: Netflix, type: select, proxies: [🚀 节点选择]}
+  - {name: GitHub, type: select, proxies: [🚀 节点选择]}
+  - {name: Spotify, type: select, proxies: [🚀 节点选择]}
+  - {name: BiliBili, type: select, proxies: [🚀 节点选择]}
   - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
+
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
@@ -37,7 +41,7 @@ proxy-groups:
 
 # 规则集（yaml 文件每天自动更新）
 rule-providers:
-  AdGuardSDNSFilter_Direct:
+  Direct:
     type: http
     behavior: classical
     format: text
@@ -45,7 +49,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdGuardSDNSFilter/Direct/Direct.yaml"
     interval: 86400
     
-  AdGuardSDNSFilter:
+  AdvertisingTest:
     type: http
     behavior: classical
     format: text
@@ -53,7 +57,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdGuardSDNSFilter/AdGuardSDNSFilter_Classical.yaml"
     interval: 86400
 
-  BlockHttpDNS:
+  AdvertisingTest:
     type: http
     behavior: classical
     format: text
@@ -69,7 +73,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingTest/AdvertisingTest_Classical.yaml"
     interval: 86400
 
-  ZhihuAds:
+  AdvertisingTest:
     type: http
     behavior: classical
     format: text
@@ -85,7 +89,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
     interval: 86400
 
-  YouTubeMusic:
+  YouTube:
     type: http
     behavior: classical
     format: text
@@ -101,7 +105,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_Classical.yaml"
     interval: 86400
 
-  Instagram:
+  Global:
     type: http
     behavior: classical
     format: text
@@ -109,7 +113,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml"
     interval: 86400
 
-  Twitter:
+  Global:
     type: http
     behavior: classical
     format: text
@@ -117,7 +121,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
     interval: 86400
 
-  Facebook:
+  Global:
     type: http
     behavior: classical
     format: text
@@ -125,7 +129,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml"
     interval: 86400
 
-  Telegram:
+  Global:
     type: http
     behavior: classical
     format: text
@@ -133,7 +137,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
     interval: 86400
 
-  WeChat:
+  Direct:
     type: http
     behavior: classical
     format: text
@@ -157,7 +161,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
     interval: 86400
 
-  ChinaMedia:
+  Direct:
     type: http
     behavior: classical
     format: text
@@ -205,7 +209,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml"
     interval: 86400
 
-  LAN:
+  Direct:
     type: http
     behavior: classical
     format: text
@@ -217,11 +221,11 @@ rule-providers:
     type: http
     behavior: classical
     format: text
-    path: ./rules/cnip.list
+    path: ./Clash/Direct/Direct.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml"
     interval: 86400
     
-  DNS:
+  Direct:
     type: http
     behavior: classical
     format: text
@@ -229,7 +233,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DNS/DNS.yaml"
     interval: 86400
 
-  ChinaMax:
+  Direct:
     type: http
     behavior: classical
     format: text
@@ -251,18 +255,17 @@ rule-providers:
 # 规则
 rules:
   # 自定义规则优先放前面
-  - GEOSITE,category-ads-all,🛑 广告拦截
-  # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
-  - GEOSITE, AdGuardSDNSFilter_Direct,🎯 全球直连
-  - GEOSITE,private,🔒 私有网络
-  - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
-  - GEOSITE,apple-cn,🍎 苹果服务
-  - GEOSITE,google-cn,📢 谷歌服务
-  - GEOSITE,category-games@cn,🎮 游戏平台
-  - GEOSITE,speedtest,📈 网络测速
-  - GEOSITE,geolocation-!cn,🪜 代理域名
-  - GEOSITE,cn,🔗 直连域名
-  - GEOIP,telegram,📲 电报消息
-  - GEOIP,private,🔒 私有网络,no-resolve
-  - GEOIP,cn,🇨🇳 国内 IP
+  - GEOSITE,AdvertisingTest,🛑 广告拦截
+  - GEOSITE,Direct,🎯 全球直连
+  - GEOSITE,Global,📲 国际社交
+  - GEOSITE,YouTube,YouTube
+  - GEOSITE,Netflix,Netflix
+  - GEOSITE,GitHub,GitHub
+  - GEOSITE,Spotify,Spotify
+  - GEOSITE,BiliBili,BiliBili
+  - GEOSITE,Microsoft,Ⓜ️ 微软服务
+  - GEOSITE,Apple,🍎 苹果服务
+  - GEOSITE,Google,📢 谷歌服务
+  - GEOSITE,Game,🎮 游戏平台
+  - GEOIP,cn,🎯 全球直连
   - MATCH,🐟 漏网之鱼
