@@ -1,12 +1,3 @@
-ip-cidr, 123.207.209.39/32, REJECT
-ip-cidr, 123.207.209.60/32, REJECT
-host, 118.89.204.198, reject
-host-keyword, 118.89.204.198, reject
-ip-cidr, 118.89.204.198/32, reject
-host, appcloud2.in.zhihu.com, reject
-host, mqtt.zhihu.com, reject
-host, sugar.zhihu.com, reject
-user-agent, AVOS*, reject
 ip-asn,132203,direct
 host-keyword, apple.com, direct
 host-keyword, tantanapp, direct
