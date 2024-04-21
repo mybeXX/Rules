@@ -1,3 +1,4 @@
+  ip-cidr, 180.76.76.200/32, reject
   host-keyword, pangolin, reject
   host-keyword, pglstat, reject
   ip-cidr, 180.76.76.200/32, reject
@@ -26829,16 +26830,4 @@
   HOST-SUFFIX,sportsyndicator.com,REJECT
   HOST-SUFFIX,spotdimesulky.com,REJECT
   HOST-SUFFIX,spotofspawn.com,REJECT
-  HOST-SUFFIX,spotrails.com,REJECT
-  HOST-SUFFIX,spotscenered.info,REJECT
-  HOST-SUFFIX,spotssurprise.com,REJECT
-  HOST-SUFFIX,spotted-estate.pro,REJECT
-  HOST-SUFFIX,spottt.com,REJECT
-  HOST-SUFFIX,spotunworthycoercive.com,REJECT
-  HOST-SUFFIX,spotxcdn.com,REJECT
-  HOST-SUFFIX,spotxchange.com,REJECT
-  HOST-SUFFIX,spoutable.com,REJECT
-  HOST-SUFFIX,spouttheory.com,REJECT
-  HOST-SUFFIX,spratstatters.com,REJECT
-  HOST-SUFFIX,spreebogbean.com,REJECT
-  HOST-SUFFIX,sprengaivr.digital,REJEC
+  H
