@@ -3,7 +3,6 @@ host-keyword, apple.com, direct
 host-keyword, tantanapp, direct
 host, academy, direct
 host-keyword, deltaww, direct
-ip-cidr, 180.76.76.200/32, reject
 host-suffix, push.apple.com, direct
 host, identity.apple.com, direct
 ip-cidr, 17.0.0.0/8, direct
