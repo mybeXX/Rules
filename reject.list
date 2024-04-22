@@ -1,2 +1,26 @@
 IP-CIDR,123.207.209.60/32,REJECT
 IP-CIDR,123.207.209.39/32,REJECT
+ip-cidr, 180.76.76.200/32, reject
+host-keyword, pangolin, reject
+host-keyword, pglstat, reject
+ip-cidr, 180.76.76.200/32, reject
+host, im.tieba.baidu.com, reject
+host, d.image.i4.cn, reject
+host-keyword, adview, reject
+host-suffix, gdt.qq.com, reject
+host-suffix, u3.ucweb.com, reject
+host, amdc.m.taobao.com, reject
+host, hub5idx.v6.shub.sandai.net, reject
+host, hub5emu.v6.shub.sandai.net, reject
+host, hub5btmain.v6.shub.sandai.net, reject
+host, ocsp.apple.com, reject
+ip-cidr, 203.107.1.1/24, reject
+ip-cidr, 123.207.209.39/32, REJECT
+ip-cidr, 123.207.209.60/32, REJECT
+host, 118.89.204.198, reject
+host-keyword, 118.89.204.198, reject
+ip-cidr, 118.89.204.198/32, reject
+host, appcloud2.in.zhihu.com, reject
+host, mqtt.zhihu.com, reject
+host, sugar.zhihu.com, reject
+user-agent, AVOS*, reject
