@@ -4,3 +4,7 @@ Google： http://www.google.com/generate_204 / http://maps.google.com/generate_2
 
 Cloudflare： http://1.1.1.1/generate_204 / http://cp.cloudflare.com/generate_204
 
+分流规则：
+https://raw.githubusercontent.com/mybeXX/QX/main/reject.list
+https://raw.githubusercontent.com/mybeXX/QX/main/direct.list
+https://raw.githubusercontent.com/mybeXX/QX/main/proxy.list
