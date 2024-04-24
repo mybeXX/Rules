@@ -1,35 +1,35 @@
-ip-asn,132203,direct
-host-keyword, apple.com, direct
-host-keyword, tantanapp, direct
-host, academy, direct
-host-keyword, deltaww, direct
-host-suffix, push.apple.com, direct
-host, identity.apple.com, direct
-ip-cidr, 17.0.0.0/8, direct
-ip-cidr, 17.249.0.0/16, direct
-ip-cidr, 17.252.0.0/16, direct
-ip-cidr, 17.57.144.0/22, direct
-ip-cidr, 17.188.128.0/18, direct
-ip-cidr, 17.188.20.0/2, direct
-ip-cidr, 100.64.0.0/10, direct
-ip6-cidr, 2620:149:a44::/48, direct
-ip6-cidr, 2403:300:a42::/48, direct
-ip6-cidr, 2403:300:a51::/48, direct
-ip6-cidr, 2a01:b740:a42::/48, direct
-host-suffix, 95599.cn, direct
-host-suffix, abchina.com, direct
-host-suffix, bscabank.com, direct
-host-suffix, openaboc.cn, direct
-host-suffix, openaboc.com, direct
-host-suffix, openaboc.com.cn, direct
-host, sdkapp.uve.weibo.com, direct
-ip-cidr, 10.0.0.0/8, direct
-ip-cidr, 127.0.0.0/8, direct
-ip-cidr, 172.16.0.0/12, direct
-ip-cidr, 192.168.0.0/16, direct
-ip-cidr, 224.0.0.0/24, direct
-ip-cidr, 182.254.116.0/24, direct
-ip6-cidr, fe80::/10, direct
+ip-asn,132203
+host-keyword, apple.com
+host-keyword, tantanapp
+host, academy
+host-keyword, deltaww
+host-suffix, push.apple.com
+host, identity.apple.com
+ip-cidr, 17.0.0.0/8
+ip-cidr, 17.249.0.0/16
+ip-cidr, 17.252.0.0/16
+ip-cidr, 17.57.144.0/22
+ip-cidr, 17.188.128.0/18
+ip-cidr, 17.188.20.0/2
+ip-cidr, 100.64.0.0/10
+ip6-cidr, 2620:149:a44::/48
+ip6-cidr, 2403:300:a42::/48
+ip6-cidr, 2403:300:a51::/48
+ip6-cidr, 2a01:b740:a42::/48
+host-suffix, 95599.cn
+host-suffix, abchina.com
+host-suffix, bscabank.com
+host-suffix, openaboc.cn
+host-suffix, openaboc.com
+host-suffix, openaboc.com.cn
+host, sdkapp.uve.weibo.com
+ip-cidr, 10.0.0.0/8
+ip-cidr, 127.0.0.0/8
+ip-cidr, 172.16.0.0/12
+ip-cidr, 192.168.0.0/16
+ip-cidr, 224.0.0.0/24
+ip-cidr, 182.254.116.0/24
+ip6-cidr, fe80::/10
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net
 DOMAIN,dldir1.qq.com
 DOMAIN,slife.xy-asia.com
@@ -383,84 +383,84 @@ DOMAIN-SUFFIX,alipayplus.com
 DOMAIN-SUFFIX,ifaa.org.cn
 DOMAIN-SUFFIX,luohanacademy.com
 DOMAIN-SUFFIX,sinopayment.com.cn
-DOMAIN-SUFFIX,acl4.ssr,DIRECT
-DOMAIN-SUFFIX,ip6-localhost,DIRECT
-DOMAIN-SUFFIX,ip6-loopback,DIRECT
-DOMAIN-SUFFIX,lan,DIRECT
-DOMAIN-SUFFIX,local,DIRECT
-DOMAIN-SUFFIX,localhost,DIRECT
-IP-CIDR,0.0.0.0/8,DIRECT,no-resolve
-IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
-IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-IP-CIDR,198.18.0.0/16,DIRECT,no-resolve
-IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
-IP6-CIDR,::1/128,DIRECT,no-resolve
-IP6-CIDR,fc00::/7,DIRECT,no-resolve
-IP6-CIDR,fe80::/10,DIRECT,no-resolve
-IP6-CIDR,fd00::/8,DIRECT,no-resolve
-DOMAIN,instant.arubanetworks.com,DIRECT
-DOMAIN,setmeup.arubanetworks.com,DIRECT
-DOMAIN,router.asus.com,DIRECT
-DOMAIN,www.asusrouter.com,DIRECT
-DOMAIN-SUFFIX,hiwifi.com,DIRECT
-DOMAIN-SUFFIX,leike.cc,DIRECT
-DOMAIN-SUFFIX,miwifi.com,DIRECT
-DOMAIN-SUFFIX,my.router,DIRECT
-DOMAIN-SUFFIX,p.to,DIRECT
-DOMAIN-SUFFIX,peiluyou.com,DIRECT
-DOMAIN-SUFFIX,phicomm.me,DIRECT
-DOMAIN-SUFFIX,router.ctc,DIRECT
-DOMAIN-SUFFIX,routerlogin.com,DIRECT
-DOMAIN-SUFFIX,tendawifi.com,DIRECT
-DOMAIN-SUFFIX,zte.home,DIRECT
-DOMAIN-SUFFIX,tplogin.cn,DIRECT
-DOMAIN-SUFFIX,wifi.cmcc,DIRECT
-DOMAIN-SUFFIX,ol.epicgames.com,DIRECT
-DOMAIN-SUFFIX,dizhensubao.getui.com,DIRECT
-DOMAIN-SUFFIX,googletraveladservices.com,DIRECT
-DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net,DIRECT
-DOMAIN,livew.l.qq.com,DIRECT
-DOMAIN,msg.umeng.com,DIRECT
-DOMAIN,msg.umengcloud.com,DIRECT
-DOMAIN,tracking.miui.com,DIRECT
-DOMAIN-SUFFIX,koodomobile.com,DIRECT
-DOMAIN-SUFFIX,koodomobile.ca,DIRECT
-DOMAIN-SUFFIX,265.com,DIRECT
-DOMAIN-SUFFIX,2mdn.net,DIRECT
-DOMAIN-SUFFIX,app-measurement.com,DIRECT
-DOMAIN-SUFFIX,cache.pack.google.com,DIRECT
-DOMAIN-SUFFIX,clickserve.dartsearch.net,DIRECT
-DOMAIN-SUFFIX,crl.pki.goog,DIRECT
-DOMAIN-SUFFIX,dl.google.com,DIRECT
-DOMAIN-SUFFIX,dl.l.google.com,DIRECT
-DOMAIN-SUFFIX,googletagmanager.com,DIRECT
-DOMAIN-SUFFIX,googletagservices.com,DIRECT
-DOMAIN-SUFFIX,gtm.oasisfeng.com,DIRECT
-DOMAIN-SUFFIX,ocsp.pki.goog,DIRECT
-DOMAIN-SUFFIX,recaptcha.net,DIRECT
-DOMAIN-SUFFIX,safebrowsing-cache.google.com,DIRECT
-DOMAIN-SUFFIX,settings.crashlytics.com,DIRECT
-DOMAIN-SUFFIX,ssl-google-analytics.l.google.com,DIRECT
-DOMAIN-SUFFIX,toolbarqueries.google.com,DIRECT
-DOMAIN-SUFFIX,tools.google.com,DIRECT
-DOMAIN-SUFFIX,tools.l.google.com,DIRECT
-DOMAIN-SUFFIX,www-googletagmanager.l.google.com,DIRECT
-DOMAIN,csgo.wmsj.cn,DIRECT
-DOMAIN,dl.steam.clngaa.com,DIRECT
-DOMAIN,dl.steam.ksyna.com,DIRECT
-DOMAIN,dota2.wmsj.cn,DIRECT
-DOMAIN,st.dl.bscstorage.net,DIRECT
-DOMAIN,st.dl.eccdnx.com,DIRECT
-DOMAIN,st.dl.pinyuncloud.com,DIRECT
-DOMAIN,steampipe.steamcontent.tnkjmec.com,DIRECT
-DOMAIN,steampowered.com.8686c.com,DIRECT
-DOMAIN,steamstatic.com.8686c.com,DIRECT
-DOMAIN,wmsjsteam.com,DIRECT
-DOMAIN,xz.pphimalayanrt.com,DIRECT
-DOMAIN-SUFFIX,cm.steampowered.com,DIRECT
-DOMAIN-SUFFIX,steamchina.com,DIRECT
-DOMAIN-SUFFIX,steamcontent.com,DIRECT
-DOMAIN-SUFFIX,steamusercontent.com,DIRECT
+DOMAIN-SUFFIX,acl4.ssr
+DOMAIN-SUFFIX,ip6-localhost
+DOMAIN-SUFFIX,ip6-loopback
+DOMAIN-SUFFIX,lan
+DOMAIN-SUFFIX,local
+DOMAIN-SUFFIX,localhost
+IP-CIDR,0.0.0.0/8,no-resolve
+IP-CIDR,10.0.0.0/8,no-resolve
+IP-CIDR,100.64.0.0/10,no-resolve
+IP-CIDR,127.0.0.0/8,no-resolve
+IP-CIDR,172.16.0.0/12,no-resolve
+IP-CIDR,192.168.0.0/16,no-resolve
+IP-CIDR,198.18.0.0/16,no-resolve
+IP-CIDR,224.0.0.0/4,no-resolve
+IP6-CIDR,::1/128,no-resolve
+IP6-CIDR,fc00::/7,no-resolve
+IP6-CIDR,fe80::/10,no-resolve
+IP6-CIDR,fd00::/8,no-resolve
+DOMAIN,instant.arubanetworks.com
+DOMAIN,setmeup.arubanetworks.com
+DOMAIN,router.asus.com
+DOMAIN,www.asusrouter.com
+DOMAIN-SUFFIX,hiwifi.com
+DOMAIN-SUFFIX,leike.cc
+DOMAIN-SUFFIX,miwifi.com
+DOMAIN-SUFFIX,my.router
+DOMAIN-SUFFIX,p.to
+DOMAIN-SUFFIX,peiluyou.com
+DOMAIN-SUFFIX,phicomm.me
+DOMAIN-SUFFIX,router.ctc
+DOMAIN-SUFFIX,routerlogin.com
+DOMAIN-SUFFIX,tendawifi.com
+DOMAIN-SUFFIX,zte.home
+DOMAIN-SUFFIX,tplogin.cn
+DOMAIN-SUFFIX,wifi.cmcc
+DOMAIN-SUFFIX,ol.epicgames.com
+DOMAIN-SUFFIX,dizhensubao.getui.com
+DOMAIN-SUFFIX,googletraveladservices.com
+DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net
+DOMAIN,livew.l.qq.com
+DOMAIN,msg.umeng.com
+DOMAIN,msg.umengcloud.com
+DOMAIN,tracking.miui.com
+DOMAIN-SUFFIX,koodomobile.com
+DOMAIN-SUFFIX,koodomobile.ca
+DOMAIN-SUFFIX,265.com
+DOMAIN-SUFFIX,2mdn.net
+DOMAIN-SUFFIX,app-measurement.com
+DOMAIN-SUFFIX,cache.pack.google.com
+DOMAIN-SUFFIX,clickserve.dartsearch.net
+DOMAIN-SUFFIX,crl.pki.goog
+DOMAIN-SUFFIX,dl.google.com
+DOMAIN-SUFFIX,dl.l.google.com
+DOMAIN-SUFFIX,googletagmanager.com
+DOMAIN-SUFFIX,googletagservices.com
+DOMAIN-SUFFIX,gtm.oasisfeng.com
+DOMAIN-SUFFIX,ocsp.pki.goog
+DOMAIN-SUFFIX,recaptcha.net
+DOMAIN-SUFFIX,safebrowsing-cache.google.com
+DOMAIN-SUFFIX,settings.crashlytics.com
+DOMAIN-SUFFIX,ssl-google-analytics.l.google.com
+DOMAIN-SUFFIX,toolbarqueries.google.com
+DOMAIN-SUFFIX,tools.google.com
+DOMAIN-SUFFIX,tools.l.google.com
+DOMAIN-SUFFIX,www-googletagmanager.l.google.com
+DOMAIN,csgo.wmsj.cn
+DOMAIN,dl.steam.clngaa.com
+DOMAIN,dl.steam.ksyna.com
+DOMAIN,dota2.wmsj.cn
+DOMAIN,st.dl.bscstorage.net
+DOMAIN,st.dl.eccdnx.com
+DOMAIN,st.dl.pinyuncloud.com
+DOMAIN,steampipe.steamcontent.tnkjmec.com
+DOMAIN,steampowered.com.8686c.com
+DOMAIN,steamstatic.com.8686c.com
+DOMAIN,wmsjsteam.com
+DOMAIN,xz.pphimalayanrt.com
+DOMAIN-SUFFIX,cm.steampowered.com
+DOMAIN-SUFFIX,steamchina.com
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamusercontent.com
