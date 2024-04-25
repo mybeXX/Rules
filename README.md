@@ -17,6 +17,7 @@ https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/QX/reject.list
 https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/QX/direct.list
 
 https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/QX/proxy.list
+
 Loon:
 https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/loon/reject.list
 
