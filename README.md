@@ -14,18 +14,9 @@ http://cp.cloudflare.com/generate_204
 
 # 分流规则：
 
-Quantumult X:
+https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/reject.list
 
-https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/QX/reject.list
+https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/direct.list
 
-https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/QX/direct.list
+https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/proxy.list
 
-https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/QX/proxy.list
-
-Loon:
-
-https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/loon/reject.list
-
-https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/loon/direct.list
-
-https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/loon/proxy.list
