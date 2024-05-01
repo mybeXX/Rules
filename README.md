@@ -20,3 +20,4 @@ https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/direct.list
 
 https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/proxy.list
 
+https://raw.githubusercontent.com/mybeXX/Rules-Script/main/rule/apple.list
