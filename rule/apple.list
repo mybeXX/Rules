@@ -1,5 +1,18 @@
 # > 苹果推送服务
 host-keyword, push.apple.com, direct
+DOMAIN-SUFFIX, push.apple.com
+DOMAIN, identity.apple.com
+IP-CIDR, 17.0.0.0/8
+IP-CIDR, 17.249.0.0/16
+IP-CIDR, 17.252.0.0/16
+IP-CIDR, 17.57.144.0/22
+IP-CIDR, 17.188.128.0/18
+IP-CIDR, 17.188.20.0/2
+IP-CIDR, 100.64.0.0/10
+IP6-CIDR, 2620:149:a44::/48
+IP6-CIDR, 2403:300:a42::/48
+IP6-CIDR, 2403:300:a51::/48
+IP6-CIDR, 2a01:b740:a42::/48
 # > 苹果时间同步
 host, time.apple.com, direct
 # > 苹果天气服务
