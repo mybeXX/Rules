@@ -1,5 +1,5 @@
 # > 苹果推送服务
-host-keyword, push.apple.com, direct
+DOMAIN-KEYWORD, push.apple.com
 DOMAIN-SUFFIX, push.apple.com
 DOMAIN, identity.apple.com
 IP-CIDR, 17.0.0.0/8
@@ -14,29 +14,29 @@ IP6-CIDR, 2403:300:a42::/48
 IP6-CIDR, 2403:300:a51::/48
 IP6-CIDR, 2a01:b740:a42::/48
 # > 苹果时间同步
-host, time.apple.com, direct
+DOMAIN, time.apple.com
 # > 苹果天气服务
-host-keyword, weather-edge.apple.com, direct
-host-keyword, weather-adge.apple.com, direct
-host-suffix, weather-data.apple.com, direct
-host-suffix, weather-map.apple.com, direct
-host-suffix, weather-analytics-events.apple.com, direct
+DOMAIN-KEYWORD, weather-edge.apple.com
+DOMAIN-KEYWORD, weather-adge.apple.com
+DOMAIN-SUFFIX, weather-data.apple.com
+DOMAIN-SUFFIX, weather-map.apple.com
+DOMAIN-SUFFIX, weather-analytics-events.apple.com
 # > 苹果内购服务
-host-keyword, buy.itunes.apple.com, direct
+DOMAIN-KEYWORD, buy.itunes.apple.com
 # > 苹果icloud
-host-keyword, icloud.com, direct
+DOMAIN-KEYWORD, icloud.com
 # > 苹果输入法相关服务
-host-keyword, api.smoot.apple.com, direct
-host-keyword, api.smoot.apple.cn, direct
+DOMAIN-KEYWORD, api.smoot.apple.com
+DOMAIN-KEYWORD, api.smoot.apple.cn
 # > 苹果iMessage服务
-host, init.ess.apple.com, direct
+DOMAIN, init.ess.apple.com
 # > 苹果其他服务
-host-keyword, ssl.apple.com, direct
-host-keyword, humb.apple.com, direct
-host, smp-device-content.apple.com, direct
-host-keyword, api-adservices.apple.com, direct
-host-keyword, ls.apple.com, direct
-host-keyword, gsa.apple.com, direct
-host-keyword, ess.apple.com, direct
+DOMAIN-KEYWORD, ssl.apple.com
+DOMAIN-KEYWORD, humb.apple.com
+DOMAIN, smp-device-content.apple.com
+DOMAIN-KEYWORD, api-adservices.apple.com
+DOMAIN-KEYWORD, ls.apple.com
+DOMAIN-KEYWORD, gsa.apple.com
+DOMAIN-KEYWORD, ess.apple.com
 # > 苹果app store
-host, itunes.apple.com, direct
+DOMAIN, itunes.apple.com
