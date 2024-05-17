@@ -8,7 +8,7 @@ http://maps.google.com/generate_204
 
 Cloudflare：
 
-http://1.0.0.1/generate_204
+http://1.0.0.1
 
 http://cp.cloudflare.com/generate_204
 
