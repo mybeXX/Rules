@@ -1,39 +1,30 @@
-DOMAIN-SUFFIX, dnsleaktest.com, PROXY
-DOMAIN-SUFFIX, dnsleak.com, PROXY
-DOMAIN-SUFFIX, expressvpn.com, PROXY
-DOMAIN-SUFFIX, nordvpn.com, PROXY
-DOMAIN-SUFFIX, surfshark.com, PROXY
-DOMAIN-SUFFIX, ipleak.net, PROXY
-DOMAIN-SUFFIX, perfect-privacy.com, PROXY
-DOMAIN-SUFFIX, browserleaks.com, PROXY
-DOMAIN-SUFFIX, browserleaks.org, PROXY
-DOMAIN-SUFFIX, vpnunlimited.com, PROXY
-DOMAIN-SUFFIX, whoer.net, PROXY
-DOMAIN-SUFFIX, whrq.net, PROXY
-
-# Astrill
-DOMAIN-SUFFIX, astrill.com, PROXY
-DOMAIN-SUFFIX, astrill.org, PROXY
-DOMAIN-SUFFIX, dnsleak.asn247.net, PROXY
-
-# Surfshark
-DOMAIN-SUFFIX, surfshark.com, PROXY
-DOMAIN-SUFFIX, surfsharkdns.com, PROXY
-
-# Pixelscan
-DOMAIN-SUFFIX, pixelscan.net, PROXY
-
-# PING0
-DOMAIN, ipv4.ping0.cc, PROXY
-DOMAIN, ipv6.ping0.cc, PROXY
-
-# IPAPI.CO
-DOMAIN-SUFFIX, ipapi.co, PROXY
-
-# BrowserScan
-DOMAIN, ip-scan.adspower.net, PROXY
-
-
+DOMAIN-KEYWORD, cloudflaresub.yuwan.link
+DOMAIN-KEYWORD, 1.xn--xc3ao8r.top
+DOMAIN-KEYWORD, sub-01.juanwang.shop
+DOMAIN-KEYWORD, v2.ixlmo.com
+DOMAIN-KEYWORD, url.v1.mk
+DOMAIN-SUFFIX, dnsleaktest.com
+DOMAIN-SUFFIX, dnsleak.com
+DOMAIN-SUFFIX, expressvpn.com
+DOMAIN-SUFFIX, nordvpn.com
+DOMAIN-SUFFIX, surfshark.com
+DOMAIN-SUFFIX, ipleak.net
+DOMAIN-SUFFIX, perfect-privacy.com
+DOMAIN-SUFFIX, browserleaks.com
+DOMAIN-SUFFIX, browserleaks.org
+DOMAIN-SUFFIX, vpnunlimited.com
+DOMAIN-SUFFIX, whoer.net
+DOMAIN-SUFFIX, whrq.net
+DOMAIN-SUFFIX, astrill.com
+DOMAIN-SUFFIX, astrill.org
+DOMAIN-SUFFIX, dnsleak.asn247.net
+DOMAIN-SUFFIX, surfshark.com
+DOMAIN-SUFFIX, surfsharkdns.com
+DOMAIN-SUFFIX, pixelscan.net
+DOMAIN, ipv4.ping0.cc
+DOMAIN, ipv6.ping0.cc
+DOMAIN-SUFFIX, ipapi.co
+DOMAIN, ip-scan.adspower.net
 DOMAIN-KEYWORD,1drv
 DOMAIN-KEYWORD,1e100
 DOMAIN-KEYWORD,abema
