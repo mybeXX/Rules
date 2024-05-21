@@ -1,20 +1,102 @@
-DOMAIN-KEYWORD,cloudflaresub.yuwan.link
-DOMAIN-KEYWORD,1.xn--xc3ao8r.top
-DOMAIN-KEYWORD,sub-01.juanwang.shop
-DOMAIN-KEYWORD,v2.ixlmo.com
+DOMAIN-KEYWORD, cloudflaresub.yuwan.link
+DOMAIN-KEYWORD, 1.xn--xc3ao8r.top
+DOMAIN-KEYWORD, sub-01.juanwang.shop
+DOMAIN-KEYWORD, v2.ixlmo.com
+DOMAIN-KEYWORD, push.apple.com
+DOMAIN-KEYWORD, time.apple.com
+DOMAIN, sp0.baidu.com
+DOMAIN-SUFFIX, baidustatic.com
+DOMAIN-KEYWORD, 
+DOMAIN-SUFFIX, e.kuaishou.com
+DOMAIN-SUFFIX, kuaishou.com
+DOMAIN-SUFFIX, yximgs.com
+DOMAIN-SUFFIX, ksapisrv.com
+DOMAIN-SUFFIX, iwx.mail.qq.com
+DOMAIN-SUFFIX, dl.op.wpscdn.cn
+DOMAIN, mo.res.wpscdn.cn
+DOMAIN-SUFFIX, 17u.cn
+DOMAIN-SUFFIX, 40017.cn
+DOMAIN, short-video.kakamobi.cn
+DOMAIN-SUFFIX, apoll.m.taobao.com
+DOMAIN-SUFFIX, acs.m.taobao.com
+DOMAIN-SUFFIX, tophub.app
+DOMAIN-KEYWORD, aw-s.tripcdn.com
+DOMAIN-KEYWORD, trip.com
+DOMAIN, www.cmpassport.com
+DOMAIN, verify.cmpassport.com
+DOMAIN, app.chat.xiaomi.net
+DOMAIN, get.sogou.com
+DOMAIN-KEYWORD, weather-edge.apple.com
+DOMAIN-KEYWORD, weather-adge.apple.com
+DOMAIN-KEYWORD, weather-data.apple.com
+DOMAIN-KEYWORD, weather-map.apple.com
+DOMAIN-KEYWORD, weather-analytics-events.apple.com
+DOMAIN-KEYWORD, buy.itunes.apple.com
+DOMAIN, api.revenuecat.com
+DOMAIN-KEYWORD, icloud.com
+DOMAIN-KEYWORD, api.smoot.apple.com
+DOMAIN-KEYWORD, api.smoot.apple.cn
+DOMAIN, init.ess.apple.com
+DOMAIN-KEYWORD, ssl.apple.com
+DOMAIN-KEYWORD, humb.apple.com
+DOMAIN, smp-device-content.apple.com
+DOMAIN-KEYWORD, api-adservices.apple.com
+DOMAIN-KEYWORD, ls.apple.com
+DOMAIN-KEYWORD, gsa.apple.com
+DOMAIN-KEYWORD, ess.apple.com
+DOMAIN-KEYWORD, ctc.qzs.qzone.qq.com
+IP-CODR, 192.168.0.1/24
+IP-CODR, 192.168.1.1/24
+DOMAIN-KEYWORD, anti-ad.net
+DOMAIN, sdk.alibaba.com.ailbaba.me
+DOMAIN, img.ffzypic.com
+DOMAIN, img.liangzipic.com
+DOMAIN, img.bfzypic.com
+DOMAIN, img.kuaikanzy.net
+DOMAIN, vip.imgffzy.com
+DOMAIN, vip.ffzyread.com
+DOMAIN, cdn.jsdelivr.net
+DOMAIN, image.maimn.com
+DOMAIN-KEYWORD, bfzycdn.com
+DOMAIN-KEYWORD, vip.kuaikan-cdn
+DOMAIN-KEYWORD, vip.ffzy-play
+DOMAIN-KEYWORD, vip.ffzy-online
+DOMAIN, static.jssp.tv
+DOMAIN, lain.bgm.tv
+DOMAIN, tiao.cjkypo.com
+DOMAIN, ok.zuidapic.com
+DOMAIN, ts.thefilehosting.com
+DOMAIN, deo.shopeemobile.com
+DOMAIN, m3u8.255tv.tk
+DOMAIN, m3u8.mstopq.com
+DOMAIN, ain.bgm.tv
+DOMAIN-KEYWORD, vip.lz-cdn
+DOMAIN-KEYWORD, ax1x.com
+DOMAIN-KEYWORD, o.lencr.org
+DOMAIN-KEYWORD, ttcdn-tos.kkimg.cc
+DOMAIN-SUFFIX, snssdk.com
+DOMAIN, api.iplay.163.com
+DOMAIN, rcs.cmpassport.com
+DOMAIN, ac.dun.163yun.com
+DOMAIN, hm.baidu.com
+DOMAIN, static.fengkongcloud.com
+DOMAIN, a.stat.xiaomi.com
+DOMAIN, e.cn.miaozhen.com
+DOMAIN, amdc.alipay.com
+DOMAIN, gia.jd.com
 DOMAIN, ad.12306.cn
-DOMAIN,fairplay.l.qq.com
-DOMAIN,livew.l.qq.com
-DOMAIN,vd.l.qq.com
-DOMAIN,vi.l.qq.com
-IP-CIDR, 192.168.0.1/24
-DOMAIN-KEYWORD,announce
-DOMAIN-KEYWORD,torrent
-DOMAIN-KEYWORD,tracker
-DOMAIN-SUFFIX,smtp
-URL-REGEX,(Subject|HELO|SMTP)
-IP-CIDR,1.1.1.1/24
-IP-ASN,132203
+DOMAIN, fairplay.l.qq.com
+DOMAIN, livew.l.qq.com
+DOMAIN, vd.l.qq.com
+DOMAIN, vi.l.qq.com
+IP-CODR, 192.168.0.1/24
+DOMAIN-KEYWORD, announce
+DOMAIN-KEYWORD, torrent
+DOMAIN-KEYWORD, tracker
+DOMAIN-SUFFIX, smtp
+URL-REGEX, (Subject|HELO|SMTP)
+IP-CODR, 1.1.1.1/24
+IP-ASN, 132203
 DOMAIN-KEYWORD, apple.com
 DOMAIN-KEYWORD, tantanapp
 DOMAIN, academy
@@ -26,111 +108,111 @@ DOMAIN-SUFFIX, openaboc.cn
 DOMAIN-SUFFIX, openaboc.com
 DOMAIN-SUFFIX, openaboc.com.cn
 DOMAIN, sdkapp.uve.weibo.com
-IP-CIDR, 10.0.0.0/8
-IP-CIDR, 127.0.0.0/8
-IP-CIDR, 172.16.0.0/12
-IP-CIDR, 192.168.0.0/16
-IP-CIDR, 224.0.0.0/24
-IP-CIDR, 182.254.116.0/24
+IP-CODR, 10.0.0.0/8
+IP-CODR, 127.0.0.0/8
+IP-CODR, 172.16.0.0/12
+IP-CODR, 192.168.0.0/16
+IP-CODR, 224.0.0.0/24
+IP-CODR, 182.254.116.0/24
 IP6-CIDR, fe80::/10
-DOMAIN-SUFFIX,alipay
-DOMAIN-SUFFIX,alipay-corp.com
-DOMAIN-SUFFIX,alipay-eco.com
-DOMAIN-SUFFIX,alipay-inc.com
-DOMAIN-SUFFIX,alipay-traffic.com
-DOMAIN-SUFFIX,alipay.cn
-DOMAIN-SUFFIX,alipay.com
-DOMAIN-SUFFIX,alipay.com.cn
-DOMAIN-SUFFIX,alipay.hk
-DOMAIN-SUFFIX,alipay.net
-DOMAIN-SUFFIX,alipaydesign.com
-DOMAIN-SUFFIX,alipaydev.com
-DOMAIN-SUFFIX,alipaydns.com
-DOMAIN-SUFFIX,alipayeshop.com
-DOMAIN-SUFFIX,alipaylog.com
-DOMAIN-SUFFIX,alipaymo.com
-DOMAIN-SUFFIX,alipayobjects.com
-DOMAIN-SUFFIX,alipayplus.com
-DOMAIN-SUFFIX,ifaa.org.cn
-DOMAIN-SUFFIX,luohanacademy.com
-DOMAIN-SUFFIX,sinopayment.com.cn
-DOMAIN-SUFFIX,acl4.ssr
-DOMAIN-SUFFIX,ip6-localDOMAIN
-DOMAIN-SUFFIX,ip6-loopback
-DOMAIN-SUFFIX,lan
-DOMAIN-SUFFIX,local
-DOMAIN-SUFFIX,localDOMAIN
-IP-CIDR,0.0.0.0/8
-IP-CIDR,10.0.0.0/8
-IP-CIDR,100.64.0.0/10
-IP-CIDR,127.0.0.0/8
-IP-CIDR,172.16.0.0/12
-IP-CIDR,192.168.0.0/16
-IP-CIDR,198.18.0.0/16
-IP-CIDR,224.0.0.0/4
-IP6-CIDR,::1/128
-IP6-CIDR,fc00::/7
-IP6-CIDR,fe80::/10
-IP6-CIDR,fd00::/8
-DOMAIN,instant.arubanetworks.com
-DOMAIN,setmeup.arubanetworks.com
-DOMAIN,router.asus.com
-DOMAIN,www.asusrouter.com
-DOMAIN-SUFFIX,hiwifi.com
-DOMAIN-SUFFIX,leike.cc
-DOMAIN-SUFFIX,miwifi.com
-DOMAIN-SUFFIX,my.router
-DOMAIN-SUFFIX,p.to
-DOMAIN-SUFFIX,peiluyou.com
-DOMAIN-SUFFIX,phicomm.me
-DOMAIN-SUFFIX,router.ctc
-DOMAIN-SUFFIX,routerlogin.com
-DOMAIN-SUFFIX,tendawifi.com
-DOMAIN-SUFFIX,zte.home
-DOMAIN-SUFFIX,tplogin.cn
-DOMAIN-SUFFIX,wifi.cmcc
-DOMAIN-SUFFIX,ol.epicgames.com
-DOMAIN-SUFFIX,dizhensubao.getui.com
-DOMAIN-SUFFIX,googletraveladservices.com
-DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net
-DOMAIN,msg.umeng.com
-DOMAIN,msg.umengcloud.com
-DOMAIN,tracking.miui.com
-DOMAIN-SUFFIX,koodomobile.com
-DOMAIN-SUFFIX,koodomobile.ca
-DOMAIN-SUFFIX,265.com
-DOMAIN-SUFFIX,2mdn.net
-DOMAIN-SUFFIX,app-measurement.com
-DOMAIN-SUFFIX,cache.pack.google.com
-DOMAIN-SUFFIX,clickserve.dartsearch.net
-DOMAIN-SUFFIX,crl.pki.goog
-DOMAIN-SUFFIX,dl.google.com
-DOMAIN-SUFFIX,dl.l.google.com
-DOMAIN-SUFFIX,googletagmanager.com
-DOMAIN-SUFFIX,googletagservices.com
-DOMAIN-SUFFIX,gtm.oasisfeng.com
-DOMAIN-SUFFIX,ocsp.pki.goog
-DOMAIN-SUFFIX,recaptcha.net
-DOMAIN-SUFFIX,safebrowsing-cache.google.com
-DOMAIN-SUFFIX,settings.crashlytics.com
-DOMAIN-SUFFIX,ssl-google-analytics.l.google.com
-DOMAIN-SUFFIX,toolbarqueries.google.com
-DOMAIN-SUFFIX,tools.google.com
-DOMAIN-SUFFIX,tools.l.google.com
-DOMAIN-SUFFIX,www-googletagmanager.l.google.com
-DOMAIN,csgo.wmsj.cn
-DOMAIN,dl.steam.clngaa.com
-DOMAIN,dl.steam.ksyna.com
-DOMAIN,dota2.wmsj.cn
-DOMAIN,st.dl.bscstorage.net
-DOMAIN,st.dl.eccdnx.com
-DOMAIN,st.dl.pinyuncloud.com
-DOMAIN,steampipe.steamcontent.tnkjmec.com
-DOMAIN,steampowered.com.8686c.com
-DOMAIN,steamstatic.com.8686c.com
-DOMAIN,wmsjsteam.com
-DOMAIN,xz.pphimalayanrt.com
-DOMAIN-SUFFIX,cm.steampowered.com
-DOMAIN-SUFFIX,steamchina.com
-DOMAIN-SUFFIX,steamcontent.com
-DOMAIN-SUFFIX,steamusercontent.com
+DOMAIN-SUFFIX, alipay
+DOMAIN-SUFFIX, alipay-corp.com
+DOMAIN-SUFFIX, alipay-eco.com
+DOMAIN-SUFFIX, alipay-inc.com
+DOMAIN-SUFFIX, alipay-traffic.com
+DOMAIN-SUFFIX, alipay.cn
+DOMAIN-SUFFIX, alipay.com
+DOMAIN-SUFFIX, alipay.com.cn
+DOMAIN-SUFFIX, alipay.hk
+DOMAIN-SUFFIX, alipay.net
+DOMAIN-SUFFIX, alipaydesign.com
+DOMAIN-SUFFIX, alipaydev.com
+DOMAIN-SUFFIX, alipaydns.com
+DOMAIN-SUFFIX, alipayeshop.com
+DOMAIN-SUFFIX, alipaylog.com
+DOMAIN-SUFFIX, alipaymo.com
+DOMAIN-SUFFIX, alipayobjects.com
+DOMAIN-SUFFIX, alipayplus.com
+DOMAIN-SUFFIX, ifaa.org.cn
+DOMAIN-SUFFIX, luohanacademy.com
+DOMAIN-SUFFIX, sinopayment.com.cn
+DOMAIN-SUFFIX, acl4.ssr
+DOMAIN-SUFFIX, ip6-localDOMAIN
+DOMAIN-SUFFIX, ip6-loopback
+DOMAIN-SUFFIX, lan
+DOMAIN-SUFFIX, local
+DOMAIN-SUFFIX, localDOMAIN
+IP-CODR, 0.0.0.0/8
+IP-CODR, 10.0.0.0/8
+IP-CODR, 100.64.0.0/10
+IP-CODR, 127.0.0.0/8
+IP-CODR, 172.16.0.0/12
+IP-CODR, 192.168.0.0/16
+IP-CODR, 198.18.0.0/16
+IP-CODR, 224.0.0.0/4
+IP6-CIDR, ::1/128
+IP6-CIDR, fc00::/7
+IP6-CIDR, fe80::/10
+IP6-CIDR, fd00::/8
+DOMAIN, instant.arubanetworks.com
+DOMAIN, setmeup.arubanetworks.com
+DOMAIN, router.asus.com
+DOMAIN, www.asusrouter.com
+DOMAIN-SUFFIX, hiwifi.com
+DOMAIN-SUFFIX, leike.cc
+DOMAIN-SUFFIX, miwifi.com
+DOMAIN-SUFFIX, my.router
+DOMAIN-SUFFIX, p.to
+DOMAIN-SUFFIX, peiluyou.com
+DOMAIN-SUFFIX, phicomm.me
+DOMAIN-SUFFIX, router.ctc
+DOMAIN-SUFFIX, routerlogin.com
+DOMAIN-SUFFIX, tendawifi.com
+DOMAIN-SUFFIX, zte.home
+DOMAIN-SUFFIX, tplogin.cn
+DOMAIN-SUFFIX, wifi.cmcc
+DOMAIN-SUFFIX, ol.epicgames.com
+DOMAIN-SUFFIX, dizhensubao.getui.com
+DOMAIN-SUFFIX, googletraveladservices.com
+DOMAIN-SUFFIX, tracking-protection.cdn.mozilla.net
+DOMAIN, msg.umeng.com
+DOMAIN, msg.umengcloud.com
+DOMAIN, tracking.miui.com
+DOMAIN-SUFFIX, koodomobile.com
+DOMAIN-SUFFIX, koodomobile.ca
+DOMAIN-SUFFIX, 265.com
+DOMAIN-SUFFIX, 2mdn.net
+DOMAIN-SUFFIX, app-measurement.com
+DOMAIN-SUFFIX, cache.pack.google.com
+DOMAIN-SUFFIX, clickserve.dartsearch.net
+DOMAIN-SUFFIX, crl.pki.goog
+DOMAIN-SUFFIX, dl.google.com
+DOMAIN-SUFFIX, dl.l.google.com
+DOMAIN-SUFFIX, googletagmanager.com
+DOMAIN-SUFFIX, googletagservices.com
+DOMAIN-SUFFIX, gtm.oasisfeng.com
+DOMAIN-SUFFIX, ocsp.pki.goog
+DOMAIN-SUFFIX, recaptcha.net
+DOMAIN-SUFFIX, safebrowsing-cache.google.com
+DOMAIN-SUFFIX, settings.crashlytics.com
+DOMAIN-SUFFIX, ssl-google-analytics.l.google.com
+DOMAIN-SUFFIX, toolbarqueries.google.com
+DOMAIN-SUFFIX, tools.google.com
+DOMAIN-SUFFIX, tools.l.google.com
+DOMAIN-SUFFIX, www-googletagmanager.l.google.com
+DOMAIN, csgo.wmsj.cn
+DOMAIN, dl.steam.clngaa.com
+DOMAIN, dl.steam.ksyna.com
+DOMAIN, dota2.wmsj.cn
+DOMAIN, st.dl.bscstorage.net
+DOMAIN, st.dl.eccdnx.com
+DOMAIN, st.dl.pinyuncloud.com
+DOMAIN, steampipe.steamcontent.tnkjmec.com
+DOMAIN, steampowered.com.8686c.com
+DOMAIN, steamstatic.com.8686c.com
+DOMAIN, wmsjsteam.com
+DOMAIN, xz.pphimalayanrt.com
+DOMAIN-SUFFIX, cm.steampowered.com
+DOMAIN-SUFFIX, steamchina.com
+DOMAIN-SUFFIX, steamcontent.com
+DOMAIN-SUFFIX, steamusercontent.com
