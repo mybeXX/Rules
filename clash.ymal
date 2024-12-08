@@ -74,9 +74,11 @@ dns:
       - 240.0.0.0/4
 
 
-select: &select {type: select, include-all: true}
-s: &s {type: select, proxies: [DIRECT, Clash]}
-c: &c {type: http, behavior: classical, format: text, interval: 86400}
+select: &select {type: select, include-all: true, url: http://1.1.1.1/generate_204}
+s: &s {type: select, proxies: [DIRECT, Clash], url: http://1.1.1.1/generate_204}
+c: &c {type: http, behavior: classical, interval: 86400}
+d: &d {type: http, behavior: domain, interval: 86400}
+i: &i {type: http,  behavior: ipcidr, interval: 86400}
 p: &p {type: http, interval: 86400, health-check: {enable: true, url: http://1.1.1.1/generate_204, interval: 1800, timeout: 5000}}
 
 proxy-providers:
@@ -93,34 +95,26 @@ rule-providers:
   UnBan:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/UnBan.list,
   GoogleCN:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/GoogleCN.list,
   SteamCN:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/SteamCN.list,
-  Spotify:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/Spotify.list,
   ProxyGFWlist:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ProxyGFWlist.list,
   ProxyMedia:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ProxyMedia.list,
   ChinaMedia:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaMedia.list,
-  ChinaDomain:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaDomain.list,
-  ChinaIp:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaIp.list,
-  ChinaCompanyIp:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaCompanyIp.list,
+  ChinaDomain:     {<<: *d, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaDomain.list,
+  ChinaIp:     {<<: *i, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaIp.list,
+  ChinaCompanyIp:     {<<: *i, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaCompanyIp.list,
   Download:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/Download.list,
-  Geoip:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/Geoip.list,
-
+  
 rules:
 
-  - GEOSITE,openai,Proxy
-  - GEOSITE,category-games,Proxy
-  - GEOSITE,github,Proxy
-  - GEOSITE,telegram,Proxy
-  - GEOSITE,twitter,Proxy
-  - GEOSITE,microsoft,Proxy
-  - GEOSITE,youtube,Proxy
-  - GEOSITE,google,Proxy
-  - GEOSITE,private,DIRECT
-  - GEOSITE,cn,DIRECT
-  - GEOSITE,geolocation-!cn,Proxy
-
-  - GEOIP,telegram,Proxy
-  - GEOIP,twitter,Proxy
-  - GEOIP,google,Proxy
-  - GEOIP,private,DIRECT
-  - GEOIP,cn,DIRECT
-
-  - MATCH,Proxy
+  - RULE-SET,LocalAreaNetwork,China
+  - RULE-SET,UnBan,China
+  - RULE-SET,GoogleCN,China
+  - RULE-SET,SteamCN,China
+  - RULE-SET,ProxyGFWlist,Clash
+  - RULE-SET,ProxyMedia,Clash
+  - RULE-SET,ChinaMedia,China
+  - RULE-SET,ChinaDomain,China
+  - RULE-SET,ChinaIp,China
+  - RULE-SET,ChinaCompanyIp,China
+  - RULE-SET,Download,China
+  - GEOIP,CN,China
+  - MATCH,Final
