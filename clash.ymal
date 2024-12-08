@@ -84,7 +84,7 @@ proxy-providers:
 
 proxies: null
 proxy-groups:
-  - {name: Clash, <<: *select, include-all: true, icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png}
+  - {name: Clash, <<: *select, include-all: true, icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
   - {name: China, <<: *s, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
   - {name: Final, <<: *s, icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
 
