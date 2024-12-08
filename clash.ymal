@@ -88,6 +88,20 @@ proxy-groups:
   - {name: China, <<: *s, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
   - {name: Final, <<: *s, icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
 
+rule-providers:
+  LocalAreaNetwork:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/LocalAreaNetwork.list,
+  UnBan:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/UnBan.list,
+  GoogleCN:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/GoogleCN.list,
+  SteamCN:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/SteamCN.list,
+  Spotify:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/Spotify.list,
+  ProxyGFWlist:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ProxyGFWlist.list,
+  ProxyMedia:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ProxyMedia.list,
+  ChinaMedia:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaMedia.list,
+  ChinaDomain:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaDomain.list,
+  ChinaIp:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaIp.list,
+  ChinaCompanyIp:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/ChinaCompanyIp.list,
+  Download:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/Download.list,
+  Geoip:     {<<: *c, url: https://github.com/mybeXX/Rules/raw/refs/heads/main/rule/Geoip.list,
 
 rules:
 
