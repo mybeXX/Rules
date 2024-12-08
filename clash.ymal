@@ -2,7 +2,9 @@ p: &p {type: http, interval: 86400, health-check: {enable: true, url: http://1.1
 proxy-providers:
   Subscribe: [url: http://your-service-provider, <<: *p]
 
-
+port: 7890
+socks-port: 7891
+redir-port: 7892
 mixed-port: 7893
 tcp-concurrent: true
 allow-lan: true
@@ -11,6 +13,9 @@ log-level: info
 unified-delay: true
 global-client-fingerprint: chrome
 find-process-mode: strict
+bind-address: "*"
+mode: rule
+external-controller: 127.0.0.1:9090
 
 geodata-mode: true
 geox-url:
@@ -42,11 +47,36 @@ tun:
 dns:
   enable: true
   ipv6: false
+  listen: 0.0.0.0:53
   enhanced-mode: fake-ip
-  listen: :1053
   fake-ip-range: 198.18.0.1/16
-  fake-ip-filter: ['*', '+.lan', '+.local', '+.direct', '+.msftconnecttest.com', '+.msftncsi.com']
-  nameserver: [223.5.5.5, 119.29.29.29]
+  fake-ip-filter:
+    - "*.lan"
+    - localhost.ptlogin2.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - "*.battlenet.com.cn"
+    - "*.battlenet.com"
+    - "*.blzstatic.cn"
+    - "*.battle.net"
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
 
 pg: &pg {type: select, proxies: [手动切换, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT]}
 select: &select {type: select, include-all: true}
@@ -55,6 +85,8 @@ c: &c {type: http, behavior: classical, format: text, interval: 86400}
 
 proxy-groups:
   - {name: Proxy, <<: *select, include-all: true, icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png}
+
+
 
 rules:
 
