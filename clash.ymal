@@ -1,7 +1,3 @@
-p: &p {type: http, interval: 86400, health-check: {enable: true, url: http://1.1.1.1/generate_204, interval: 1800, timeout: 5000}}
-proxy-providers:
-  Subscribe: [url: http://your-service-provider, <<: *p]
-
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -78,14 +74,19 @@ dns:
       - 240.0.0.0/4
 
 
-pg: &pg {type: select, proxies: [手动切换, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT]}
 select: &select {type: select, include-all: true}
-
+s: &s {type: select, proxies: [DIRECT, Clash]}
 c: &c {type: http, behavior: classical, format: text, interval: 86400}
+p: &p {type: http, interval: 86400, health-check: {enable: true, url: http://1.1.1.1/generate_204, interval: 1800, timeout: 5000}}
 
+proxy-providers:
+  Subscribe: [url: http://your-service-provider, <<: *p]
+
+proxies: null
 proxy-groups:
-  - {name: Proxy, <<: *select, include-all: true, icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png}
-
+  - {name: Clash, <<: *select, include-all: true, icon: https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/applesafari.png}
+  - {name: China, <<: *s, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
+  - {name: Final, <<: *s, icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
 
 
 rules:
