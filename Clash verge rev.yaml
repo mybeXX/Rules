@@ -90,10 +90,12 @@ proxies:
 proxy-groups:
   - {name: Clash, type: select, use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
   - {name: China, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
+  - {name: BanAD, type: select, proxies: [REJECT, DIRECT], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png}
   - {name: Final, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
 
 
 rule-providers:
+  BanAD: {<<: *c, path: ./rule-providers/BanAD.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/BanAD.yaml}
   LocalAreaNetwork: {<<: *c, path: ./rule-providers/LocalAreaNetwork.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/LocalAreaNetwork.yaml}
   UnBan: {<<: *c, path: ./rule-providers/UnBan.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/UnBan.yaml}
   GoogleCN: {<<: *c, path: ./rule-providers/GoogleCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/GoogleCN.yaml}
@@ -107,6 +109,7 @@ rule-providers:
   Download: {<<: *c, path: ./rule-providers/Download.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml}
 
 rules:
+  - RULE-SET,BanAD,BanAD
   - RULE-SET,LocalAreaNetwork,China
   - RULE-SET,UnBan,China
   - RULE-SET,GoogleCN,China
