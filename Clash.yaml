@@ -1,0 +1,124 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tcp-concurrent: true
+allow-lan: true
+ipv6: false
+log-level: info
+unified-delay: true
+global-client-fingerprint: chrome
+find-process-mode: strict
+bind-address: "*"
+mode: rule
+external-controller: 127.0.0.1:9090
+
+geodata-mode: true
+geox-url:
+  geoip: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat"
+  geosite: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
+  asn: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb"
+
+profile:
+  store-selected: true 
+  store-fake-ip: true  
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack: [any:53]
+        
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - localhost.ptlogin2.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+    - +.xboxlive.com
+    - msftconnecttest.com
+    - xbox.*.microsoft.com
+    - "*.battlenet.com.cn"
+    - "*.battlenet.com"
+    - "*.blzstatic.cn"
+    - "*.battle.net"
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+
+select: &select {type: select, include-all: true, url: http://1.1.1.1/generate_204}
+s: &s {type: select, proxies: [DIRECT, Clash], url: http://1.1.1.1/generate_204}
+c: &c {type: http, behavior: classical, url: http://1.1.1.1/generate_204, interval: 86400}
+d: &d {type: http, behavior: domain, url: http://1.1.1.1/generate_204, interval: 86400}
+i: &i {type: http,  behavior: ipcidr, interval: 86400}
+p: &p {type: http, interval: 21600, health-check: {enable: true, url: http://1.1.1.1/generate_204, interval: 600}}
+
+proxy-providers:
+  Sub1: {<<: *p, path: ./proxy-providers/Sub1.yaml, url: }   
+  Sub2: {<<: *p, path: ./proxy-providers/Sub2.yaml, url: }   
+
+proxies: 
+
+proxy-groups:
+  - {name: Clash, type: select, use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
+  - {name: China, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
+  - {name: Final, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
+
+
+rule-providers:
+  LocalAreaNetwork: {<<: *c, path: ./rule-providers/LocalAreaNetwork.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/LocalAreaNetwork.yaml}
+  UnBan: {<<: *c, path: ./rule-providers/UnBan.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/UnBan.yaml}
+  GoogleCN: {<<: *c, path: ./rule-providers/GoogleCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/GoogleCN.yaml}
+  SteamCN: {<<: *c, path: ./rule-providers/SteamCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/SteamCN.yaml}
+  Download: {<<: *c, path: ./rule-providers/Download.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml}
+  ProxyGFWlist: {<<: *c, path: ./rule-providers/ProxyGFWlist.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml}
+  ProxyMedia: {<<: *c, path: ./rule-providers/ProxyMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyMedia.yaml}
+  Proxy: {<<: *c, path: ./rule-providers/proxy.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Proxy.yaml}
+  ChinaMedia: {<<: *c, path: ./rule-providers/ChinaMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaMedia.yaml}
+  ChinaDomain: {<<: *d, path: ./rule-providers/ChinaDomain.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaDomain.yaml}
+  ChinaIp: {<<: *i, path: ./rule-providers/ChinaIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaIp.yaml}
+  ChinaCompanyIp: {<<: *i, path: ./rule-providers/ChinaCompanyIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaCompanyIp.yaml}
+
+rules:
+  - RULE-SET,LocalAreaNetwork,China
+  - RULE-SET,UnBan,China
+  - RULE-SET,GoogleCN,China
+  - RULE-SET,SteamCN,China
+  - RULE-SET,Download,China
+  - RULE-SET,ProxyGFWlist,Clash
+  - RULE-SET,ProxyMedia,Clash
+  - RULE-SET,Proxy,Clash
+  - RULE-SET,ChinaMedia,China
+  - RULE-SET,ChinaDomain,China
+  - RULE-SET,ChinaIp,China
+  - RULE-SET,ChinaCompanyIp,China
+  - GEOIP,CN,China
+  - MATCH,Final
