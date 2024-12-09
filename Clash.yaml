@@ -98,27 +98,26 @@ rule-providers:
   UnBan: {<<: *c, path: ./rule-providers/UnBan.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/UnBan.yaml}
   GoogleCN: {<<: *c, path: ./rule-providers/GoogleCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/GoogleCN.yaml}
   SteamCN: {<<: *c, path: ./rule-providers/SteamCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/SteamCN.yaml}
-  Download: {<<: *c, path: ./rule-providers/Download.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml}
-  ProxyGFWlist: {<<: *c, path: ./rule-providers/ProxyGFWlist.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml}
   ProxyMedia: {<<: *c, path: ./rule-providers/ProxyMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyMedia.yaml}
-  Proxy: {<<: *c, path: ./rule-providers/proxy.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Proxy.yaml}
+  ProxyGFWlist: {<<: *c, path: ./rule-providers/ProxyGFWlist.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml}
   ChinaMedia: {<<: *c, path: ./rule-providers/ChinaMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaMedia.yaml}
   ChinaDomain: {<<: *d, path: ./rule-providers/ChinaDomain.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaDomain.yaml}
   ChinaIp: {<<: *i, path: ./rule-providers/ChinaIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaIp.yaml}
   ChinaCompanyIp: {<<: *i, path: ./rule-providers/ChinaCompanyIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaCompanyIp.yaml}
+  Download: {<<: *c, path: ./rule-providers/Download.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml}
 
 rules:
   - RULE-SET,LocalAreaNetwork,China
   - RULE-SET,UnBan,China
   - RULE-SET,GoogleCN,China
   - RULE-SET,SteamCN,China
-  - RULE-SET,Download,China
-  - RULE-SET,ProxyGFWlist,Clash
   - RULE-SET,ProxyMedia,Clash
-  - RULE-SET,Proxy,Clash
+  - RULE-SET,ProxyGFWlist,Clash
   - RULE-SET,ChinaMedia,China
   - RULE-SET,ChinaDomain,China
   - RULE-SET,ChinaIp,China
   - RULE-SET,ChinaCompanyIp,China
+  - RULE-SET,Download,China
   - GEOIP,CN,China
   - MATCH,Final
+
