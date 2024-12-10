@@ -108,7 +108,10 @@ rule-providers:
   Spotify: {<<: *c, path: ./rule-providers/Spotify.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Spotify.yaml}
   ProxyMedia: {<<: *c, path: ./rule-providers/ProxyMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyMedia.yaml}
   ProxyGFWlist: {<<: *c, path: ./rule-providers/ProxyGFWlist.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml}
+  ProxyList: {<<: *c, path: ./rule-providers/ProxyList.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyLite.yaml}
+  Proxy: {<<: *c, path: ./rule-providers/Proxy.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Proxy.yaml}
   ChinaMedia: {<<: *c, path: ./rule-providers/ChinaMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaMedia.yaml}
+  Direct: {<<: *c, path: ./rule-providers/Direct.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Direct.yaml}
   ChinaDomain: {<<: *d, path: ./rule-providers/ChinaDomain.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaDomain.yaml}
   ChinaIp: {<<: *i, path: ./rule-providers/ChinaIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaIp.yaml}
   ChinaCompanyIp: {<<: *i, path: ./rule-providers/ChinaCompanyIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaCompanyIp.yaml}
@@ -125,7 +128,10 @@ rules:
   - RULE-SET,Spotify,Spotify
   - RULE-SET,ProxyMedia,Clash
   - RULE-SET,ProxyGFWlist,Clash
+  - RULE-SET,ProxyList,Clash
+  - RULE-SET,Proxy,Clash
   - RULE-SET,ChinaMedia,China
+  - RULE-SET,Direct,China
   - RULE-SET,ChinaDomain,China
   - RULE-SET,ChinaIp,China
   - RULE-SET,ChinaCompanyIp,China
