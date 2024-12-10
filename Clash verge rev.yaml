@@ -96,11 +96,15 @@ proxy-groups:
 
 
 rule-providers:
-  BanAD: {<<: *c, path: ./rule-providers/BanAD.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/BanAD.yaml}
   LocalAreaNetwork: {<<: *c, path: ./rule-providers/LocalAreaNetwork.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/LocalAreaNetwork.yaml}
   UnBan: {<<: *c, path: ./rule-providers/UnBan.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/UnBan.yaml}
+  BanAD: {<<: *c, path: ./rule-providers/BanAD.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/BanAD.yaml}
+  BanProgramAD: {<<: *c, path: ./rule-providers/BanProgramAD.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/BanProgramAD.yaml}
   GoogleCN: {<<: *c, path: ./rule-providers/GoogleCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/GoogleCN.yaml}
   SteamCN: {<<: *c, path: ./rule-providers/SteamCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/SteamCN.yaml}
+  Apple_Domain: {<<: *d, path: ./rule-providers/Apple_Domain.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Apple_Domain.yaml}
+  Apple: {<<: *c, path: ./rule-providers/Apple.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Apple.yaml}
+  Microsoft: {<<: *c, path: ./rule-providers/Microsoft.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Microsoft.yaml}
   Spotify: {<<: *c, path: ./rule-providers/Spotify.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Spotify.yaml}
   ProxyMedia: {<<: *c, path: ./rule-providers/ProxyMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyMedia.yaml}
   ProxyGFWlist: {<<: *c, path: ./rule-providers/ProxyGFWlist.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml}
@@ -111,11 +115,15 @@ rule-providers:
   Download: {<<: *c, path: ./rule-providers/Download.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml}
 
 rules:
-  - RULE-SET,BanAD,BanAD
   - RULE-SET,LocalAreaNetwork,China
   - RULE-SET,UnBan,China
+  - RULE-SET,BanAD,BanAD
+  - RULE-SET,BanProgramAD,BanAD
   - RULE-SET,GoogleCN,China
   - RULE-SET,SteamCN,China
+  - RULE-SET,Apple_Domain,China
+  - RULE-SET,Apple,China
+  - RULE-SET,Microsoft,China
   - RULE-SET,Spotify,Spotify
   - RULE-SET,ProxyMedia,Clash
   - RULE-SET,ProxyGFWlist,Clash
@@ -126,3 +134,4 @@ rules:
   - RULE-SET,Download,China
   - GEOIP,CN,China
   - MATCH,Final
+
