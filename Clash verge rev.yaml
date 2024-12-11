@@ -90,8 +90,8 @@ proxy-providers:
 proxies: 
 
 proxy-groups:
-  - {name: Clash, type: select, use: [SakanaCloud 鱼云,卷王机场], filter: "^(?!.*?使用)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
-  - {name: Spotify, type: select, proxies: [DIRECT], filter: ".*(US|🇺🇸|美国)", use: [SakanaCloud 鱼云,卷王机场], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png}
+  - {name: Clash, type: select, use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
+  - {name: Spotify, type: select, proxies: [DIRECT], filter: ".*(US|🇺🇸|美国)", use: [Sub1,Sub2, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png}
   - {name: China, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
   - {name: Final, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
 
