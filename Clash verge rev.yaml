@@ -76,12 +76,12 @@ dns:
   mmdb: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
   asn: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb"
 
-select: &select {type: select, include-all: true, url: http://1.1.1.1/generate_204}
-s: &s {type: select, proxies: [DIRECT, Clash], url: http://1.1.1.1/generate_204}
-c: &c {type: http, behavior: classical, url: http://1.1.1.1/generate_204, interval: 86400}
-d: &d {type: http, behavior: domain, url: http://1.1.1.1/generate_204, interval: 86400}
+select: &select {type: select, include-all: true, url: http://www.google.com/blank.html}
+s: &s {type: select, proxies: [DIRECT, Clash], url: http://www.google.com/blank.html}
+c: &c {type: http, behavior: classical, url: http://www.google.com/blank.html, interval: 86400}
+d: &d {type: http, behavior: domain, url: http://www.google.com/blank.html, interval: 86400}
 i: &i {type: http,  behavior: ipcidr, interval: 86400}
-p: &p {type: http, interval: 21600, health-check: {enable: true, url: http://1.1.1.1/generate_204, interval: 600}}
+p: &p {type: http, interval: 21600, health-check: {enable: true, url: http://www.google.com/blank.html, interval: 600}}
 
 proxy-providers:
   Sub1: {<<: *p, path: ./proxy-providers/Sub1.yaml, url: }   
