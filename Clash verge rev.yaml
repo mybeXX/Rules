@@ -88,34 +88,34 @@ NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, 
 
 
 proxy-providers: 
-  SakanaCloud 鱼云:
-    url: 'https://cloudflaresub.yuwan.link/api/v1/client/subscribe?token=5eb9ea235799c2449ffdf6ac845ed59f'
+  Sub1:
+    url: ''
     <<: *NodeParam
     path: './proxy_providers/Sub1.yaml'
     override:
-      additional-prefix: "[SakanaCloud 鱼云]"
-  性价比机场:
-    url: 'https://proxyinfo.net/api/v1/client/subscribe?token=82dbad34b86b023bd2a8870095dec4e4'
+      additional-prefix: "[Sub1]"
+  Sub2:
+    url: ''
     <<: *NodeParam
     path: './proxy_providers/Sub2.yaml'
     override:
-      additional-prefix: "[性价比机场]"
+      additional-prefix: "[Sub2]"
 
 proxies:
 
 proxy-groups:
-  - {name: FlClash, type: select, proxies: [DIRECT,UrlHK,UrlJP,UrlSG,UrlUS], use: [SakanaCloud 鱼云,性价比机场], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
-  - {name: Netflix, type: select, proxies: [DIRECT,FallHK,FallJP,FallSG,FallUS], use: [SakanaCloud 鱼云,性价比机场], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
+  - {name: FlClash, type: select, proxies: [DIRECT,UrlHK,UrlJP,UrlSG,UrlUS], use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
+  - {name: Netflix, type: select, proxies: [DIRECT,FallHK,FallJP,FallSG,FallUS], use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
   - {name: Spotify, type: select, proxies: [DIRECT,UrlUS]}
   - {name: China, type: select, proxies: [DIRECT, FlClash]}
-  - {name: UrlHK, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(HK)"}
-  - {name: UrlJP, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(JP)"}
-  - {name: UrlSG, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(SG)"}
-  - {name: UrlUS, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(US|美国)"}
-  - {name: FallHK, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(HK|香港)"}
-  - {name: FallJP, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(JP|日本)"}
-  - {name: FallSG, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(SG|新加坡)"}
-  - {name: FallUS, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(US|美国)"}
+  - {name: UrlHK, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(HK|香港)"}
+  - {name: UrlJP, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(JP|日本)"}
+  - {name: UrlSG, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(SG|新加坡)"}
+  - {name: UrlUS, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(US|美国)"}
+  - {name: FallHK, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(HK|香港)"}
+  - {name: FallJP, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(JP|日本)"}
+  - {name: FallSG, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(SG|新加坡)"}
+  - {name: FallUS, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1,Sub2], filter: ".*(US|美国)"}
 
 rule-providers:
   LocalAreaNetwork:
