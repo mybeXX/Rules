@@ -71,12 +71,15 @@ dns:
     - https://223.6.6.6/dns-query#h3=true
 
 geox-url:
-  geoip: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-only-cn-private.dat"
-  geosite: "https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.dat"
-  mmdb: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-without-asn.mmdb"
-  asn: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-asn.mmdb"
+  geoip: "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat"
+  geosite: "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat"
+  mmdb: "https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb"
+  asn: "https://gitlab.com/Loon0x00/loon_data/-/raw/main/geo/GeoLite2-ASN.mmdb"
 
 select: &select {type: select, include-all: true, url: http://www.google.com/blank.html}
+UrlTest: &UrlTest {type: url-test, interval: 6, tolerance: 20, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
+FallBack: &FallBack {type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
+LoadBalance: &LoadBalance {type: load-balance, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
 s: &s {type: select, proxies: [DIRECT, Clash], url: http://www.google.com/blank.html}
 c: &c {type: http, behavior: classical, url: http://www.google.com/blank.html, interval: 86400}
 d: &d {type: http, behavior: domain, url: http://www.google.com/blank.html, interval: 86400}
@@ -85,26 +88,34 @@ NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, 
 
 
 proxy-providers: 
-  Sub1:
-    url: ''
+  SakanaCloud 鱼云:
+    url: 'https://cloudflaresub.yuwan.link/api/v1/client/subscribe?token=5eb9ea235799c2449ffdf6ac845ed59f'
     <<: *NodeParam
     path: './proxy_providers/Sub1.yaml'
     override:
-      additional-prefix: "[Sub1]"
-  Sub2:
-    url: ''
+      additional-prefix: "[SakanaCloud 鱼云]"
+  性价比机场:
+    url: 'https://proxyinfo.net/api/v1/client/subscribe?token=82dbad34b86b023bd2a8870095dec4e4'
     <<: *NodeParam
     path: './proxy_providers/Sub2.yaml'
     override:
-      additional-prefix: "[Sub2]"
+      additional-prefix: "[性价比机场]"
 
 proxies:
 
 proxy-groups:
-  - {name: Clash, type: select, proxies: [DIRECT], use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
-  - {name: Spotify, type: select, proxies: [DIRECT], filter: ".*(US|🇺🇸|美国)", use: [Sub1,Sub2], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png}
-  - {name: China, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
-
+  - {name: FlClash, type: select, proxies: [DIRECT,UrlHK,UrlJP,UrlSG,UrlUS], use: [SakanaCloud 鱼云,性价比机场], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
+  - {name: Netflix, type: select, proxies: [DIRECT,FallHK,FallJP,FallSG,FallUS], use: [SakanaCloud 鱼云,性价比机场], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
+  - {name: Spotify, type: select, proxies: [DIRECT,UrlUS]}
+  - {name: China, type: select, proxies: [DIRECT, FlClash]}
+  - {name: UrlHK, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(HK)"}
+  - {name: UrlJP, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(JP)"}
+  - {name: UrlSG, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(SG)"}
+  - {name: UrlUS, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(US|美国)"}
+  - {name: FallHK, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(HK|香港)"}
+  - {name: FallJP, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(JP|日本)"}
+  - {name: FallSG, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(SG|新加坡)"}
+  - {name: FallUS, type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [SakanaCloud 鱼云,性价比机场], filter: ".*(US|美国)"}
 
 rule-providers:
   LocalAreaNetwork:
@@ -147,6 +158,10 @@ rule-providers:
     <<: *c
     path: './rule-providers/Spotify.yaml'
     url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Spotify.yaml'
+  Netflix:
+    <<: *c
+    path: './rule-providers/Netflix.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Netflix.yaml'
   ProxyMedia:
     <<: *c
     path: './rule-providers/ProxyMedia.yaml'
@@ -187,12 +202,13 @@ rules:
   - RULE-SET,Apple,China
   - RULE-SET,Microsoft,China
   - RULE-SET,Spotify,Spotify
-  - RULE-SET,ProxyMedia,Clash
-  - RULE-SET,ProxyGFWlist,Clash
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,ProxyMedia,FlClash
+  - RULE-SET,ProxyGFWlist,FlClash
   - RULE-SET,ChinaMedia,China
   - RULE-SET,ChinaDomain,China
   - RULE-SET,ChinaCompanyIp,China
   - RULE-SET,ChinaIp,China
   - RULE-SET,Download,China
   - GEOIP,CN,China
-  - MATCH,Clash
+  - MATCH,FlClash
