@@ -70,71 +70,129 @@ dns:
     - https://223.5.5.5/dns-query#h3=true
     - https://223.6.6.6/dns-query#h3=true
 
-    geox-url:
-  geoip: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat"
-  geosite: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
-  asn: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb"
+geox-url:
+  geoip: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-only-cn-private.dat"
+  geosite: "https://github.com/Loyalsoldier/domain-list-custom/releases/latest/download/geosite.dat"
+  mmdb: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-without-asn.mmdb"
+  asn: "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-asn.mmdb"
 
 select: &select {type: select, include-all: true, url: http://www.google.com/blank.html}
 s: &s {type: select, proxies: [DIRECT, Clash], url: http://www.google.com/blank.html}
 c: &c {type: http, behavior: classical, url: http://www.google.com/blank.html, interval: 86400}
 d: &d {type: http, behavior: domain, url: http://www.google.com/blank.html, interval: 86400}
 i: &i {type: http,  behavior: ipcidr, interval: 86400}
-p: &p {type: http, interval: 21600, health-check: {enable: true, url: http://www.google.com/blank.html, interval: 600}}
+NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 6}}
 
-proxy-providers:
-  Sub1: {<<: *p, path: ./proxy-providers/Sub1.yaml, url: }   
-  Sub2: {<<: *p, path: ./proxy-providers/Sub2.yaml, url: }   
 
-proxies: 
+proxy-providers: 
+  Sub1:
+    url: ''
+    <<: *NodeParam
+    path: './proxy_providers/Sub1.yaml'
+    override:
+      additional-prefix: "[Sub1]"
+  Sub2:
+    url: ''
+    <<: *NodeParam
+    path: './proxy_providers/Sub2.yaml'
+    override:
+      additional-prefix: "[Sub2]"
+
+proxies:
 
 proxy-groups:
-  - {name: Clash, type: select, use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
-  - {name: Spotify, type: select, proxies: [DIRECT], filter: ".*(US|🇺🇸|美国)", use: [Sub1,Sub2, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png}
+  - {name: Clash, type: select, proxies: [DIRECT], use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)", icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/refs/heads/main/src-tauri/icons/128x128@2x.png}
+  - {name: Spotify, type: select, proxies: [DIRECT], filter: ".*(US|🇺🇸|美国)", use: [Sub1,Sub2], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png}
   - {name: China, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png}
-  - {name: Final, type: select, proxies: [DIRECT, Clash], icon: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Final.png}
 
 
 rule-providers:
-  LocalAreaNetwork: {<<: *c, path: ./rule-providers/LocalAreaNetwork.yaml,  url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/LocalAreaNetwork.yaml}
-  UnBan: {<<: *c, path: ./rule-providers/UnBan.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/UnBan.yaml}
-  Direct: {<<: *c, path: ./rule-providers/Direct.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Direct.yaml}
-  GoogleCN: {<<: *c, path: ./rule-providers/GoogleCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/GoogleCN.yaml}
-  SteamCN: {<<: *c, path: ./rule-providers/SteamCN.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/SteamCN.yaml}
-  Apple_Domain: {<<: *d, path: ./rule-providers/Apple_Domain.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Apple_Domain.yaml}
-  Apple: {<<: *c, path: ./rule-providers/Apple.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Apple.yaml}
-  Microsoft: {<<: *c, path: ./rule-providers/Microsoft.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Microsoft.yaml}
-  Spotify: {<<: *c, path: ./rule-providers/Spotify.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Spotify.yaml}
-  ProxyMedia: {<<: *c, path: ./rule-providers/ProxyMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyMedia.yaml}
-  ProxyGFWlist: {<<: *c, path: ./rule-providers/ProxyGFWlist.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml}
-  ProxyList: {<<: *c, path: ./rule-providers/ProxyList.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyLite.yaml}
-  Proxy: {<<: *c, path: ./rule-providers/Proxy.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Proxy.yaml}
-  ChinaMedia: {<<: *c, path: ./rule-providers/ChinaMedia.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaMedia.yaml}
-  ChinaDomain: {<<: *d, path: ./rule-providers/ChinaDomain.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaDomain.yaml}
-  ChinaIp: {<<: *i, path: ./rule-providers/ChinaIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaIp.yaml}
-  ChinaCompanyIp: {<<: *i, path: ./rule-providers/ChinaCompanyIp.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaCompanyIp.yaml}
-  Download: {<<: *c, path: ./rule-providers/Download.yaml, url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml}
+  LocalAreaNetwork:
+    <<: *c
+    path: './rule-providers/LocalAreaNetwork.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/LocalAreaNetwork.yaml'
+  UnBan:
+    <<: *c
+    path: './rule-providers/UnBan.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/UnBan.yaml'
+  GoogleCN:
+    <<: *c
+    path: './rule-providers/GoogleCN.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/GoogleCN.yaml'
+  SteamCN:
+    <<: *c
+    path: './rule-providers/SteamCN.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/SteamCN.yaml'
+  Tencent:
+    <<: *c
+    path: './rule-providers/Tencent.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Tencent.yaml'
+  NetEase:
+    <<: *c
+    path: './rule-providers/NetEase.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/NetEase.yaml'
+  Apple_Domain:
+    <<: *d
+    path: './rule-providers/Apple_Domain.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Apple_Domain.yaml'
+  Apple:
+    <<: *c
+    path: './rule-providers/Apple.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Apple.yaml'
+  Microsoft:
+    <<: *c
+    path: './rule-providers/Microsoft.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Microsoft.yaml'
+  Spotify:
+    <<: *c
+    path: './rule-providers/Spotify.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Spotify.yaml'
+  ProxyMedia:
+    <<: *c
+    path: './rule-providers/ProxyMedia.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyMedia.yaml'
+  ProxyGFWlist:
+    <<: *c
+    path: './rule-providers/ProxyGFWlist.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ProxyGFWlist.yaml'
+  ChinaMedia:
+    <<: *c
+    path: './rule-providers/ChinaMedia.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaMedia.yaml'
+  ChinaDomain:
+    <<: *d
+    path: './rule-providers/ChinaDomain.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaDomain.yaml'
+  ChinaCompanyIp:
+    <<: *i
+    path: './rule-providers/ChinaCompanyIp.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaCompanyIp.yaml'
+  Download:
+    <<: *c
+    path: './rule-providers/Download.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/Download.yaml'
+  ChinaIp:
+    <<: *i
+    path: './rule-providers/ChinaIp.yaml'
+    url: 'https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Clash/ChinaIp.yaml'
 
 rules:
   - RULE-SET,LocalAreaNetwork,China
   - RULE-SET,UnBan,China
-  - RULE-SET,Direct,China
   - RULE-SET,GoogleCN,China
   - RULE-SET,SteamCN,China
+  - RULE-SET,Tencent,China
+  - RULE-SET,NetEase,China
   - RULE-SET,Apple_Domain,China
   - RULE-SET,Apple,China
   - RULE-SET,Microsoft,China
   - RULE-SET,Spotify,Spotify
   - RULE-SET,ProxyMedia,Clash
   - RULE-SET,ProxyGFWlist,Clash
-  - RULE-SET,ProxyList,Clash
-  - RULE-SET,Proxy,Clash
   - RULE-SET,ChinaMedia,China
   - RULE-SET,ChinaDomain,China
-  - RULE-SET,ChinaIp,China
   - RULE-SET,ChinaCompanyIp,China
+  - RULE-SET,ChinaIp,China
   - RULE-SET,Download,China
   - GEOIP,CN,China
-  - MATCH,Final
-
+  - MATCH,Clash
