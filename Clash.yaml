@@ -118,14 +118,18 @@ rule-providers:
     <<: *c
     path: './rule-providers/LocalAreaNetwork.yaml'
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/LocalAreaNetwork.yaml'
-  BanAD:
-    <<: *c
-    path: './rule-providers/BanAD.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/BanAD.yaml'
   UnBan:
     <<: *c
     path: './rule-providers/UnBan.yaml'
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/UnBan.yaml'
+  BlockHttpDNS:
+    <<: *c
+    path: './rule-providers/BlockHttpDNS.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml'
+  BanAD:
+    <<: *c
+    path: './rule-providers/BanAD.yaml'
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/BanAD.yaml'
   Apple:
     <<: *c
     path: './rule-providers/Apple.yaml'
@@ -133,7 +137,11 @@ rule-providers:
   Microsoft:
     <<: *c
     path: './rule-providers/Microsoft.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Microsoft.yaml'
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Microsoft.yaml'
+  GoogleCN:
+    <<: *c
+    path: './rule-providers/GoogleCN.yaml'
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/GoogleCN.yaml'
   ChinaMedia:
     <<: *c
     path: './rule-providers/ChinaMedia.yaml'
@@ -146,10 +154,6 @@ rule-providers:
     <<: *c
     path: './rule-providers/ProxyGFWlist.yaml'
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyGFWlist.yaml'
-  ChinaIp:
-    <<: *i
-    path: './rule-providers/ChinaIp.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaIp.yaml'
   ChinaDomain:
     <<: *d
     path: './rule-providers/ChinaDomain.yaml'
@@ -158,6 +162,10 @@ rule-providers:
     <<: *i
     path: './rule-providers/ChinaCompanyIp.yaml'
     url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaCompanyIp.yaml'
+  ChinaIp:
+    <<: *i
+    path: './rule-providers/ChinaIp.yaml'
+    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaIp.yaml'
   Download:
     <<: *c
     path: './rule-providers/Download.yaml'
@@ -167,15 +175,17 @@ rule-providers:
 rules:
   - RULE-SET,LocalAreaNetwork,China
   - RULE-SET,UnBan,China
+  - RULE-SET,BlockHttpDNS,BanAD
   - RULE-SET,BanAD,BanAD
   - RULE-SET,Apple,China
   - RULE-SET,Microsoft,China
+  - RULE-SET,GoogleCN,China
   - RULE-SET,ChinaMedia,China
   - RULE-SET,ProxyMedia,Nyanpasu
   - RULE-SET,ProxyGFWlist,Nyanpasu
-  - RULE-SET,ChinaIp,China
   - RULE-SET,ChinaDomain,China
   - RULE-SET,ChinaCompanyIp,China
+  - RULE-SET,ChinaIp,China
   - RULE-SET,Download,China
   - GEOIP,CN,China
   - MATCH,Final
