@@ -43,9 +43,6 @@ sniffer:
   force-domain:
     - +.v2ex.com
 
-  skip-domain:
-    - Mijia Cloud
-
 tun:
   enable: true
   stack: system
