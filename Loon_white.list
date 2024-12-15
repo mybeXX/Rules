@@ -1,0 +1,104 @@
+[General]
+ip-mode = ipv4-only
+dns-server = system
+sni-sniffing = true
+disable-stun = false
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = false
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url = http://www.google.com/blank.html
+resource-parser = https://raw.githubusercontent.com/sub-store-org/Sub-Store/release/sub-store-parser.loon.min.js
+geoip-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-only-cn-private.dat
+ipasn-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-without-asn.mmdb
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+
+[Host]
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+🇭🇰 = NameRegex,FilterKey = ".*(🇭🇰)"
+🇯🇵 = NameRegex,FilterKey = "🇯🇵"
+🇸🇬 = NameRegex,FilterKey = "🇸🇬"
+🇺🇸 = NameRegex,FilterKey = ".*(🇺🇸)"
+Other = NameRegex,FilterKey = "^(?!.*🇺🇸)^(?!.*🇯🇵)^(?!.*🇭🇰)^(?!.*🇸🇬)^(?!.*使用)^(?!.*更新)"
+ALL = NameRegex,FilterKey = "^(?!.*使用)^(?!.*更新)"
+
+[Proxy Group]
+Loon = select,HK,JP,SG,US,🇭🇰,🇯🇵,🇸🇬,🇺🇸,Other,ALL,url = http://www.google.com/blank.html,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/Loon_8.png
+Netflix = select,🇸🇬,🇺🇸,🇯🇵,🇭🇰,Other,ALL,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+Spotify = select,DIRECT,US,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+China = select,DIRECT,Loon,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+Final = select,DIRECT,Loon,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+HK = load-balance,🇭🇰,interval = 60,max-timeout = 200,algorithm = random,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+JP = load-balance,🇯🇵,interval = 60,max-timeout = 150,algorithm = random,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+SG = load-balance,🇸🇬,interval = 60,max-timeout = 150,algorithm = random,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+US = load-balance,🇺🇸,interval = 60,max-timeout = 400,algorithm = random,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+Telegram = load-balance,🇭🇰,🇯🇵,🇸🇬,interval = 60,max-timeout = 120,algorithm = round-robin,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/qure/color/Telegram.png
+
+[Proxy Chain]
+[Remote Rule]
+https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list, policy=China, tag=LocalAreaNetwork.list, enabled=true
+https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/UnBan.list, policy=China, tag=UnBan.list, enabled=true
+https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/private.txt, policy=China, tag=private.txt, enabled=true
+https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/reject.txt, policy=REJECT, tag=reject.txt, enabled=true
+https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/apple.txt, policy=China, tag=apple.txt, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/iCloud/iCloud.list, policy=China, tag=iCloud.list, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Microsoft/Microsoft.list, policy=China, tag=Microsoft.list, enabled=true
+https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/google.txt, policy=Loon, tag=google.txt, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list, policy=Netflix, tag=Netflix.list, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Spotify/Spotify_Resolve.list, policy=Spotify, tag=Spotify.list, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list, policy=Telegram, tag=Telegram.list, enabled=true
+https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyGFWlist.list, policy=Loon, tag=ProxyGFWlist.list, enabled=true
+https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Proxy.list, policy=Loon, tag=Proxy.list, enabled=true
+https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list, policy=Loon, tag=ProxyMedia.list, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMax/ChinaMax_Domain.list, policy=China, tag=ChinaMax_Domain.list, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMax/ChinaMax_No_IPv6.list, policy=China, tag=ChinaMax_No_IPv6.list, enabled=true
+https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Geoip.list, policy=China, tag=Geoip.list, enabled=true
+
+[Rule]
+FINAL,Final
+
+[Rewrite]
+
+[Script]
+cron "0 */6 * * *" script-path=https://raw.githubusercontent.com/unknowntokyo/surge-list/master/X/dns-clear-cache.js, timeout=10, tag=𝑫𝒏𝒔 𝑪𝒍𝒆𝒂𝒓 𝑪𝒂𝒄𝒉𝒆, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lab.png
+[Plugin]
+https://kelee.one/Tool/Loon/Plugin/Block_HTTPDNS.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/BlockAdvertisers.plugin, enabled=true
+https://raw.githubusercontent.com/GeQ1an/Rules/refs/heads/master/Loon/Rewrite/Rewrite.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/Remove_ads_by_keli.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/Weixin_external_links_unlock.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/MailMaster_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/YoudaoDict_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/DragonRead_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/SevenCat_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/YouTube_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/YouTubeSubtitlesTranslation.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/Spotify_remove_ads.plugin, enabled=true
+https://kelee.one/Tool/Loon/Plugin/Spotify_lyrics_translation.plugin, enabled=true
+https://github.com/DualSubs/Netflix/releases/latest/download/DualSubs.Netflix.plugin, enabled=true
+https://github.com/DualSubs/Spotify/releases/latest/download/DualSubs.Spotify.plugin, enabled=false
+https://github.com/DualSubs/YouTube/releases/latest/download/DualSubs.YouTube.plugin, enabled=false
+https://github.com/DualSubs/Universal/releases/latest/download/DualSubs.Universal.plugin, enabled=true
+https://github.com/VirgilClyne/GetSomeFries/raw/main/plugin/General.plugin, tag=🍟 Fries: 🌐 General Enhanced, enabled=true
+https://github.com/VirgilClyne/GetSomeFries/raw/main/plugin/DNS.plugin, tag=🍟 Fries: 🌐 DNS enhanced, enabled=true
+https://whatshub.top/plugin/GeoLocation.plugin, enabled=true
+https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=Loon, enabled=true
+
+[Mitm]
+skip-server-cert-verify = false
+hostname = m.client.10010.com,act.10010.com,www.flyertea.com,www.duokan.com,tieba.baidu.com
+ca-passphrase = 
+ca-p12 = 
