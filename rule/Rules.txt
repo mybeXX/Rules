@@ -1,11 +1,10 @@
-https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt,China
 https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Inside.list,China
 https://raw.githubusercontent.com/cutethotw/ClashRule/main/Rule/Outside.list,Loon
 https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/ChatGPT.list,AI
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list,AI
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Lan/Lan.list,China
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list,China
-https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt,IP
+https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/surge.list,IP
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list,AD
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list,AD
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list,AD
@@ -23,11 +22,9 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok.list,TikTok
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.list,Telegram
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia.list,Loon
-https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt,Loon
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list,Loon
-https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt,Loon
+https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/proxy.txt,Loon
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list,China
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list,China
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list,China
 https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list,China
-https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt,China
