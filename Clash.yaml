@@ -729,20 +729,20 @@ proxy-groups:
   - 🇸🇬 狮城自动
   - 🇺🇲 美国自动
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
 - name: 🎥 Netflix
   type: select
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
 - name: 🐹 Disney
   type: select
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
 - name: 🎵 Spotify
   type: select
@@ -760,6 +760,15 @@ proxy-groups:
   - 🇯🇵 日本自动
   - 🇸🇬 狮城自动
   - 🇺🇲 美国自动
+- name: 📲 Telegram
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - 🇭🇰 香港自动
+  - 🇯🇵 日本自动
+  - 🇸🇬 狮城自动
+  - 🇺🇲 美国自动
+  - 🇯🇵 日本负载
 - name: 🛸 IP归属地伪装
   type: select
   proxies:
@@ -770,16 +779,16 @@ proxy-groups:
   - 🇸🇬 狮城自动
   - 🇺🇲 美国自动
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
 - name: 🤖 AI
   type: select
   proxies:
   - 🚀 节点选择
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: .*(US)
 - name: 🌏 国内媒体
   type: select
@@ -821,7 +830,7 @@ proxy-groups:
   proxies:
   - DIRECT
   - 🚀 节点选择
-- name: 📲 Telegram
+- name: 🇯🇵 日本负载
   type: load-balance
   interval: 6
   strategy: round-robin
@@ -834,8 +843,8 @@ proxy-groups:
   # hidden: true
   include-all-providers: true
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: .*(JP)
 - name: 🇭🇰 香港自动
   type: url-test
@@ -849,8 +858,8 @@ proxy-groups:
   # hidden: true
   include-all-providers: true
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: ^(?!.*?IPLC).*(HK)
 - name: 🇯🇵 日本自动
   type: url-test
@@ -864,8 +873,8 @@ proxy-groups:
   # hidden: true
   include-all-providers: true
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: .*(JP)
 - name: 🇸🇬 狮城自动
   type: url-test
@@ -879,8 +888,8 @@ proxy-groups:
   # hidden: true
   include-all-providers: true
   use:
-  - Sub
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: .*(SG)
 - name: 🇺🇲 美国自动
   type: url-test
@@ -894,8 +903,8 @@ proxy-groups:
   # hidden: true
   include-all-providers: true
   use:
-  - Sub1
-  - Sub2
+  - SakanaCloud 鱼云
+  - 卷王机场
   filter: .*(US)
 rule-providers:
   Inside:
@@ -1043,3 +1052,4 @@ rules:
 - RULE-SET,ChinaCompanyIp,🎯 全球直连
 - GEOIP,CN,🎯 全球直连
 - MATCH,🐟 漏网之鱼
+
