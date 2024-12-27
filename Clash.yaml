@@ -1,188 +1,1045 @@
-port: 7890
+mixed-port: 7890
 socks-port: 7891
-mixed-port: 7892
-redir-port: 7893
-tproxy-port: 7894
-
-unified-delay: true
-geodata-mode: false
-geodata-loader: standard
-geo-auto-update: true
-geo-update-interval: 24
-tcp-concurrent: true
-find-process-mode: strict
-global-client-fingerprint: chrome
-
 allow-lan: true
-mode: rule
-log-level: info
+bind-address: "*"
 ipv6: false
-udp: true
-
-external-controller: 0.0.0.0:9090
-# external-ui: ui
-# external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
-
-profile:
-  store-selected: true
-  store-fake-ip: true
-
-sniffer:
-  enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: true
-  sniff:
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-    TLS:
-      ports: [443, 8443]
-    QUIC:
-      ports: [443, 8443]
-  force-domain:
-    - +.v2ex.com
-
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-    - any:53
-  auto-route: true
-  auto-detect-interface: true
-
+log-level: info
+external-controller: 127.0.0.1:9090
+experimental:
+  ignore-resolve-fail: true
 dns:
   enable: true
-  listen: 0.0.0.0:1053
   ipv6: false
+  listen: 0.0.0.0:53
   enhanced-mode: fake-ip
-  fake-ip-range: 28.0.0.1/8
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - "*"
-    - +.lan
-  default-nameserver:
-    - 223.5.5.5
-    - 223.6.6.6
+    - "*.lan"
+    - localhost.ptlogin2.qq.com
   nameserver:
-    - https://223.5.5.5/dns-query#h3=true
-    - https://223.6.6.6/dns-query#h3=true
-
-geox-url:
-  geoip: "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geoip.dat"
-  geosite: "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/geosite.dat"
-  mmdb: "https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb"
-  asn: "https://gitlab.com/Loon0x00/loon_data/-/raw/main/geo/GeoLite2-ASN.mmdb"
-
-select: &select {type: select, include-all: true, url: http://www.google.com/blank.html}
-UrlTest: &UrlTest {type: url-test, interval: 6, tolerance: 20, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
-FallBack: &FallBack {type: fallback, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
-LoadBalance: &LoadBalance {type: load-balance, interval: 6, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, strategy: consistent-hashing, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
-s: &s {type: select, proxies: [DIRECT, Clash], url: http://www.google.com/blank.html}
-c: &c {type: http, behavior: classical, url: http://www.google.com/blank.html, interval: 86400}
-d: &d {type: http, behavior: domain, url: http://www.google.com/blank.html, interval: 86400}
-i: &i {type: http,  behavior: ipcidr, interval: 86400}
-NodeParam: &NodeParam {type: http, interval: 3600, health-check: {enable: true, url: 'http://www.google.com/blank.html', interval: 6}}
-
-
-proxy-providers: 
+    - 223.5.5.5
+    - 180.76.76.76
+    - 119.29.29.29
+    - 117.50.11.11
+    - 117.50.10.10
+    - 114.114.114.114
+    - https://dns.alidns.com/dns-query
+    - https://doh.360.cn/dns-query
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1
+    - tls://dns.rubyfish.cn:853
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+    - https://dns.rubyfish.cn/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true
+cfw-latency-timeout: 3000
+cfw-latency-url: http://www.gstatic.com/generate_204
+cfw-profile-mixin:
+  dns:
+    enable: true
+    listen: :53
+    enhanced-mode: fake-ip
+    nameserver:
+      - 223.5.5.5
+      - 180.76.76.76
+      - 119.29.29.29
+      - 117.50.11.11
+      - 117.50.10.10
+      - 114.114.114.114
+cfw-conn-break-strategy:
+  proxy: none
+  profile: true
+  mode: false
+cfw-proxies-order: 默认
+cfw-bypass-bak:
+  - qq.com
+  - music.163.com
+  - "*.music.126.net"
+  - localhost
+  - 127.*
+  - 10.*
+  - 172.16.*
+  - 172.17.*
+  - 172.18.*
+  - 172.19.*
+  - 172.20.*
+  - 172.21.*
+  - 172.22.*
+  - 172.23.*
+  - 172.24.*
+  - 172.25.*
+  - 172.26.*
+  - 172.27.*
+  - 172.28.*
+  - 172.29.*
+  - 172.30.*
+  - 172.31.*
+  - 192.168.*
+  - <local>
+cfw-bypass:
+  - "*.13th.tech"
+  - "*.423down.com"
+  - "*.bokecc.com"
+  - "*.chaipip.com"
+  - "*.chinaplay.store"
+  - "*.hrtsea.com"
+  - "*.kaikeba.com"
+  - "*.laomo.me"
+  - "*.mpyit.com"
+  - "*.msftconnecttest.com"
+  - "*.msftncsi.com"
+  - "*.qupu123.com"
+  - "*.pdfwifi.com"
+  - "*.cn"
+  - "*.中国"
+  - "*.公司"
+  - "*.网络"
+  - "*-cn*"
+  - "*360buy*"
+  - "*alicdn*"
+  - "*alimama*"
+  - "*alipay*"
+  - "*appzapp*"
+  - "*baidupcs*"
+  - "*bilibili*"
+  - "*ccgslb*"
+  - "*chinacache*"
+  - "*duobao*"
+  - "*duolingo*"
+  - "*jdpay*"
+  - "*moke*"
+  - "*qhimg*"
+  - "*vpimg*"
+  - "*xiami*"
+  - "*xiaomi*"
+  - "*.360.com"
+  - "*.360kuai.com"
+  - "*.360safe.com"
+  - "*.dhrest.com"
+  - "*.qhres.com"
+  - "*.qhstatic.com"
+  - "*.qhupdate.com"
+  - "*.so.com"
+  - "*.4399.com"
+  - "*.4399pk.com"
+  - "*.5054399.com"
+  - "*.img4399.com"
+  - "*.58.com"
+  - "*.1688.com"
+  - "*.aliapp.org"
+  - "*.alibaba.com"
+  - "*.alibabacloud.com"
+  - "*.alibabausercontent.com"
+  - "*.alicdn.com"
+  - "*.alicloudccp.com"
+  - "*.aliexpress.com"
+  - "*.aliimg.com"
+  - "*.alikunlun.com"
+  - "*.alipay.com"
+  - "*.alipayobjects.com"
+  - "*.alisoft.com"
+  - "*.aliyun.com"
+  - "*.aliyuncdn.com"
+  - "*.aliyuncs.com"
+  - "*.aliyundrive.com"
+  - "*.amap.com"
+  - "*.autonavi.com"
+  - "*.dingtalk.com"
+  - "*.ele.me"
+  - "*.hichina.com"
+  - "*.mmstat.com"
+  - "*.mxhichina.com"
+  - "*.soku.com"
+  - "*.taobao.com"
+  - "*.taobaocdn.com"
+  - "*.tbcache.com"
+  - "*.tbcdn.com"
+  - "*.tmall.com"
+  - "*.tmall.hk"
+  - "*.ucweb.com"
+  - "*.xiami.com"
+  - "*.xiami.net"
+  - "*.ykimg.com"
+  - "*.youku.com"
+  - "*.baidu.com"
+  - "*.baidubcr.com"
+  - "*.baidupcs.com"
+  - "*.baidustatic.com"
+  - "*.bcebos.com"
+  - "*.bdimg.com"
+  - "*.bdstatic.com"
+  - "*.bdurl.net"
+  - "*.hao123.com"
+  - "*.hao123img.com"
+  - "*.jomodns.com"
+  - "*.yunjiasu-cdn.net"
+  - "*.acg.tv"
+  - "*.acgvideo.com"
+  - "*.b23.tv"
+  - "*.bigfun.cn"
+  - "*.bigfunapp.cn"
+  - "*.biliapi.com"
+  - "*.biliapi.net"
+  - "*.bilibili.com"
+  - "*.biligame.com"
+  - "*.biligame.net"
+  - "*.bilivideo.com"
+  - "*.bilivideo.cn"
+  - "*.hdslb.com"
+  - "*.im9.com"
+  - "*.smtcdns.net"
+  - "*.battle.net"
+  - "*.battlenet.com"
+  - "*.blizzard.com"
+  - "*.bytedance.com"
+  - "*.bytedance.net"
+  - "*.bytedns.net"
+  - "*.byteimg.com"
+  - "*.feiliao.com"
+  - "*.gifshow.com"
+  - "*.huoshan.com"
+  - "*.iesdouyin.com"
+  - "*.ixigua.com"
+  - "*.kspkg.com"
+  - "*.pstatp.com"
+  - "*.snssdk.com"
+  - "*.toutiao.com"
+  - "*.toutiao13.com"
+  - "*.toutiaocdn.com"
+  - "*.toutiaocdn.net"
+  - "*.toutiaocloud.com"
+  - "*.toutiaohao.com"
+  - "*.toutiaohao.net"
+  - "*.toutiaoimg.com"
+  - "*.toutiaopage.com"
+  - "*.wukong.com"
+  - "*.zijieimg.com"
+  - "*.zjbyte.com"
+  - "*.zjcdn.com"
+  - "*.cctv.com"
+  - "*.cctvpic.com"
+  - "*.livechina.com"
+  - "*.21cn.com"
+  - "*.didialift.com"
+  - "*.didiglobal.com"
+  - "*.udache.com"
+  - "*.douyu.com"
+  - "*.douyu.tv"
+  - "*.douyuscdn.com"
+  - "*.douyutv.com"
+  - "*.epicgames.com"
+  - "*.helpshift.com"
+  - "*.paragon.com"
+  - "*.unrealengine.com"
+  - "*.dbankcdn.com"
+  - "*.hc-cdn.com"
+  - "*.hicloud.com"
+  - "*.huawei.com"
+  - "*.huaweicloud.com"
+  - "*.huaweishop.net"
+  - "*.hwccpc.com"
+  - "*.vmall.com"
+  - "*.vmallres.com"
+  - "*.iflyink.com"
+  - "*.iflyrec.com"
+  - "*.iflytek.com"
+  - "*.71.am"
+  - "*.71edge.com"
+  - "*.iqiyi.com"
+  - "*.iqiyipic.com"
+  - "*.ppsimg.com"
+  - "*.qiyi.com"
+  - "*.qiyipic.com"
+  - "*.qy.net"
+  - "*.360buy.com"
+  - "*.360buyimg.com"
+  - "*.jcloudcs.com"
+  - "*.jd.com"
+  - "*.jd.hk"
+  - "*.jdcloud.com"
+  - "*.jdpay.com"
+  - "*.paipai.com"
+  - "*.iciba.com"
+  - "*.ksosoft.com"
+  - "*.ksyun.com"
+  - "*.kuaishou.com"
+  - "*.yximgs.com"
+  - "*.meitu.com"
+  - "*.meitudata.com"
+  - "*.meitustat.com"
+  - "*.meipai.com"
+  - "*.le.com"
+  - "*.lecloud.com"
+  - "*.letv.com"
+  - "*.letvcloud.com"
+  - "*.letvimg.com"
+  - "*.letvlive.com"
+  - "*.letvstore.com"
+  - "*.hitv.com"
+  - "*.hunantv.com"
+  - "*.mgtv.com"
+  - "*.duokan.com"
+  - "*.mi-img.com"
+  - "*.mi.com"
+  - "*.miui.com"
+  - "*.xiaomi.com"
+  - "*.xiaomi.net"
+  - "*.xiaomicp.com"
+  - "*.126.com"
+  - "*.126.net"
+  - "*.127.net"
+  - "*.163.com"
+  - "*.163yun.com"
+  - "*.lofter.com"
+  - "*.netease.com"
+  - "*.ydstatic.com"
+  - "*.youdao.com"
+  - "*.pplive.com"
+  - "*.pptv.com"
+  - "*.pinduoduo.com"
+  - "*.yangkeduo.com"
+  - "*.leju.com"
+  - "*.miaopai.com"
+  - "*.sina.com"
+  - "*.sinaapp.com"
+  - "*.sinaimg.com"
+  - "*.weibo.com"
+  - "*.weibocdn.com"
+  - "*.xiaoka.tv"
+  - "*.go2map.com"
+  - "*.sogo.com"
+  - "*.sogou.com"
+  - "*.sogoucdn.com"
+  - "*.sohu-inc.com"
+  - "*.sohu.com"
+  - "*.sohucs.com"
+  - "*.sohuno.com"
+  - "*.sohurdc.com"
+  - "*.v-56.com"
+  - "*.playstation.com"
+  - "*.playstation.net"
+  - "*.playstationnetwork.com"
+  - "*.sony.com"
+  - "*.sonyentertainmentnetwork.com"
+  - "*.steamcontent.com"
+  - "*.steamusercontent.com"
+  - "*.steamchina.com"
+  - csgo.wmsj.cn
+  - dota2.wmsj.cn
+  - wmsjsteam.com
+  - dl.steam.clngaa.com
+  - dl.steam.ksyna.com
+  - st.dl.bscstorage.net
+  - st.dl.eccdnx.com
+  - st.dl.pinyuncloud.com
+  - steampipe.steamcontent.tnkjmec.com
+  - steampowered.com.8686c.com
+  - steamstatic.com.8686c.com
+  - "*.foxmail.com"
+  - "*.gtimg.com"
+  - "*.idqqimg.com"
+  - "*.igamecj.com"
+  - "*.myapp.com"
+  - "*.myqcloud.com"
+  - "*.qq.com"
+  - "*.qqmail.com"
+  - "*.qqurl.com"
+  - "*.smtcdns.com"
+  - "*.smtcdns.net"
+  - "*.soso.com"
+  - "*.tencent-cloud.net"
+  - "*.tencent.com"
+  - "*.tencentmind.com"
+  - "*.tenpay.com"
+  - "*.wechat.com"
+  - "*.weixin.com"
+  - "*.weiyun.com"
+  - "*.appsimg.com"
+  - "*.appvipshop.com"
+  - "*.vip.com"
+  - "*.vipstatic.com"
+  - "*.ximalaya.com"
+  - "*.xmcdn.com"
+  - "*.00cdn.com"
+  - "*.88cdn.com"
+  - "*.kanimg.com"
+  - "*.kankan.com"
+  - "*.p2cdn.com"
+  - "*.sandai.net"
+  - "*.thundercdn.com"
+  - "*.xunlei.com"
+  - "*.got001.com"
+  - "*.p4pfile.com"
+  - "*.rrys.tv"
+  - "*.rrys2020.com"
+  - "*.yyets.com"
+  - "*.zimuzu.io"
+  - "*.zimuzu.tv"
+  - "*.zmz001.com"
+  - "*.zmz002.com"
+  - "*.zmz003.com"
+  - "*.zmz004.com"
+  - "*.zmz2019.com"
+  - "*.zmzapi.com"
+  - "*.zmzapi.net"
+  - "*.zmzfile.com"
+  - "*announce*"
+  - "*torrent*"
+  - "*tracker*"
+  - "*.animebytes.tv"
+  - "*.animetorrents.me"
+  - "*.awesome-hd.me"
+  - "*.beitai.pt"
+  - "*.bittorrent.com"
+  - "*.broadcasthe.net"
+  - "*.chdbits.co"
+  - "*.classix-unlimited.co.uk"
+  - "*.empornium.me"
+  - "*.gazellegames.net"
+  - "*.hd4fans.org"
+  - "*.hdchina.org"
+  - "*.hdhome.org"
+  - "*.hdsky.me"
+  - "*.hdtime.org"
+  - "*.hdzone.me"
+  - "*.icetorrent.org"
+  - "*.jpopsuki.eu"
+  - "*.keepfrds.com"
+  - "*.leaguehd.com"
+  - "*.m-team.cc"
+  - "*.madsrevolution.net"
+  - "*.msg.vg"
+  - "*.nanyangpt.com"
+  - "*.ncore.cc"
+  - "*.open.cd"
+  - "*.ourbits.club"
+  - "*.passthepopcorn.me"
+  - "*.privatehd.to"
+  - "*.pthome.net"
+  - "*.redacted.ch"
+  - "*.springsunday.net"
+  - "*.tjupt.org"
+  - "*.totheglory.im"
+  - "*.trontv.com"
+  - "*.teamviewer.com"
+  - "*.baomitu.com"
+  - "*.bootcss.com"
+  - "*.jiasule.com"
+  - "*.staticfile.org"
+  - "*.upaiyun.com"
+  - "*.10010.com"
+  - "*.115.com"
+  - "*.12306.com"
+  - "*.17173.com"
+  - "*.178.com"
+  - "*.17k.com"
+  - "*.360doc.com"
+  - "*.36kr.com"
+  - "*.3dmgame.com"
+  - "*.51cto.com"
+  - "*.51job.com"
+  - "*.51jobcdn.com"
+  - "*.56.com"
+  - "*.8686c.com"
+  - "*.abchina.com"
+  - "*.abercrombie.com"
+  - "*.acfun.tv"
+  - "*.air-matters.com"
+  - "*.air-matters.io"
+  - "*.aixifan.com"
+  - "*.algocasts.io"
+  - "*.babytree.com"
+  - "*.babytreeimg.com"
+  - "*.baicizhan.com"
+  - "*.baidupan.com"
+  - "*.baike.com"
+  - "*.biqudu.com"
+  - "*.biquge.com"
+  - "*.bitauto.com"
+  - "*.c-ctrip.com"
+  - "*.camera360.com"
+  - "*.cdnmama.com"
+  - "*.chaoxing.com"
+  - "*.che168.com"
+  - "*.chinacache.net"
+  - "*.chinaso.com"
+  - "*.chinaz.com"
+  - "*.chinaz.net"
+  - "*.chuimg.com"
+  - "*.cibntv.net"
+  - "*.clouddn.com"
+  - "*.cloudxns.net"
+  - "*.cn163.net"
+  - "*.cnbeta.com"
+  - "*.cnbetacdn.com"
+  - "*.cnblogs.com"
+  - "*.cnki.net"
+  - "*.cnmstl.net"
+  - "*.coolapk.com"
+  - "*.coolapkmarket.com"
+  - "*.csdn.net"
+  - "*.ctrip.com"
+  - "*.dangdang.com"
+  - "*.dfcfw.com"
+  - "*.dianping.com"
+  - "*.dilidili.wang"
+  - "*.douban.com"
+  - "*.doubanio.com"
+  - "*.dpfile.com"
+  - "*.duowan.com"
+  - "*.dxycdn.com"
+  - "*.dytt8.net"
+  - "*.easou.com"
+  - "*.eastday.com"
+  - "*.eastmoney.com"
+  - "*.ecitic.com"
+  - "*.ewqcxz.com"
+  - "*.fang.com"
+  - "*.fantasy.tv"
+  - "*.feng.com"
+  - "*.fengkongcloud.com"
+  - "*.fir.im"
+  - "*.frdic.com"
+  - "*.fresh-ideas.cc"
+  - "*.ganji.com"
+  - "*.ganjistatic1.com"
+  - "*.geetest.com"
+  - "*.geilicdn.com"
+  - "*.ghpym.com"
+  - "*.godic.net"
+  - "*.guazi.com"
+  - "*.gwdang.com"
+  - "*.gzlzfm.com"
+  - "*.haibian.com"
+  - "*.haosou.com"
+  - "*.hollisterco.com"
+  - "*.hongxiu.com"
+  - "*.huajiao.com"
+  - "*.hupu.com"
+  - "*.huxiucdn.com"
+  - "*.huya.com"
+  - "*.ifeng.com"
+  - "*.ifengimg.com"
+  - "*.images-amazon.com"
+  - "*.infzm.com"
+  - "*.ipip.net"
+  - "*.it168.com"
+  - "*.ithome.com"
+  - "*.ixdzs.com"
+  - "*.jianguoyun.com"
+  - "*.jianshu.com"
+  - "*.jianshu.io"
+  - "*.jianshuapi.com"
+  - "*.jiathis.com"
+  - "*.jmstatic.com"
+  - "*.jumei.com"
+  - "*.kaola.com"
+  - "*.knewone.com"
+  - "*.koowo.com"
+  - "*.ksyungslb.com"
+  - "*.kuaidi100.com"
+  - "*.kugou.com"
+  - "*.lancdns.com"
+  - "*.landiannews.com"
+  - "*.lanzou.com"
+  - "*.lanzoui.com"
+  - "*.lanzoux.com"
+  - "*.lemicp.com"
+  - "*.letitfly.me"
+  - "*.lizhi.fm"
+  - "*.lizhi.io"
+  - "*.lizhifm.com"
+  - "*.loli.net"
+  - "*.luoo.net"
+  - "*.lvmama.com"
+  - "*.lxdns.com"
+  - "*.maoyan.com"
+  - "*.meilishuo.com"
+  - "*.meituan.com"
+  - "*.meituan.net"
+  - "*.meizu.com"
+  - "*.migucloud.com"
+  - "*.miguvideo.com"
+  - "*.mobike.com"
+  - "*.mogu.com"
+  - "*.mogucdn.com"
+  - "*.mogujie.com"
+  - "*.moji.com"
+  - "*.moke.com"
+  - "*.msstatic.com"
+  - "*.mubu.com"
+  - "*.myunlu.com"
+  - "*.nruan.com"
+  - "*.nuomi.com"
+  - "*.onedns.net"
+  - "*.onlinedown.net"
+  - "*.oracle.com"
+  - "*.oschina.net"
+  - "*.ourdvs.com"
+  - "*.paypal.com"
+  - "*.polyv.net"
+  - "*.qbox.me"
+  - "*.qcloud.com"
+  - "*.qcloudcdn.com"
+  - "*.qdaily.com"
+  - "*.qdmm.com"
+  - "*.qhimg.com"
+  - "*.qianqian.com"
+  - "*.qidian.com"
+  - "*.qihucdn.com"
+  - "*.qin.io"
+  - "*.qiniu.com"
+  - "*.qiniucdn.com"
+  - "*.qiniudn.com"
+  - "*.qiushibaike.com"
+  - "*.quanmin.tv"
+  - "*.qunar.com"
+  - "*.qunarzz.com"
+  - "*.rarbg.to"
+  - "*.repaik.com"
+  - "*.rrmj.tv"
+  - "*.ruguoapp.com"
+  - "*.runoob.com"
+  - "*.sankuai.com"
+  - "*.segmentfault.com"
+  - "*.sf-express.com"
+  - "*.shumilou.net"
+  - "*.simplecd.me"
+  - "*.sm.ms"
+  - "*.smzdm.com"
+  - "*.snwx.com"
+  - "*.soufunimg.com"
+  - "*.sspai.com"
+  - "*.startssl.com"
+  - "*.suning.com"
+  - "*.synology.com"
+  - "*.taihe.com"
+  - "*.th-sjy.com"
+  - "*.tianqi.com"
+  - "*.tianqistatic.com"
+  - "*.tianyancha.com"
+  - "*.tianyaui.com"
+  - "*.tietuku.com"
+  - "*.tiexue.net"
+  - "*.tmiaoo.com"
+  - "*.trip.com"
+  - "*.ttmeiju.com"
+  - "*.tudou.com"
+  - "*.tuniu.com"
+  - "*.tuniucdn.com"
+  - "*.umengcloud.com"
+  - "*.upyun.com"
+  - "*.uxengine.net"
+  - "*.videocc.net"
+  - "*.wandoujia.com"
+  - "*.weather.com"
+  - "*.weico.cc"
+  - "*.weidian.com"
+  - "*.weiphone.com"
+  - "*.weiphone.net"
+  - "*.womai.com"
+  - "*.wscdns.com"
+  - "*.xdrig.com"
+  - "*.xhscdn.com"
+  - "*.xiachufang.com"
+  - "*.xiaohongshu.com"
+  - "*.xiaojukeji.com"
+  - "*.xinhuanet.com"
+  - "*.xip.io"
+  - "*.xitek.com"
+  - "*.xiumi.us"
+  - "*.xslb.net"
+  - "*.xueqiu.com"
+  - "*.yach.me"
+  - "*.yeepay.com"
+  - "*.yhd.com"
+  - "*.yihaodianimg.com"
+  - "*.yinxiang.com"
+  - "*.yinyuetai.com"
+  - "*.yixia.com"
+  - "*.ys168.com"
+  - "*.yuewen.com"
+  - "*.yy.com"
+  - "*.yystatic.com"
+  - "*.zealer.com"
+  - "*.zhangzishi.cc"
+  - "*.zhanqi.tv"
+  - "*.zhaopin.com"
+  - "*.zhihu.com"
+  - "*.zhimg.com"
+  - "*.zhongsou.com"
+  - "*.zhuihd.com"
+  - localhost
+  - 127.*
+  - 10.*
+  - 172.16.*
+  - 172.17.*
+  - 172.18.*
+  - 172.19.*
+  - 172.20.*
+  - 172.21.*
+  - 172.22.*
+  - 172.23.*
+  - 172.24.*
+  - 172.25.*
+  - 172.26.*
+  - 172.27.*
+  - 172.28.*
+  - 172.29.*
+  - 172.30.*
+  - 172.31.*
+  - 192.168.*
+  - <local>
+proxy-providers:
   Sub1:
-    url: ''
-    <<: *NodeParam
-    path: './proxy_providers/Sub1.yaml'
+    url: 
+    <<:
+      type: http
+      interval: 3600
+      health-check:
+        enable: true
+        url: http://www.google.com/blank.html
+        interval: 6
+    path: ./proxy_providers/Sub1.yaml
     override:
-      additional-prefix: "[Sub1]"
+      additional-prefix: '[Sub1]'
   Sub2:
-    url: ''
-    <<: *NodeParam
-    path: './proxy_providers/Sub2.yaml'
+    url: 
+    <<:
+      type: http
+      interval: 3600
+      health-check:
+        enable: true
+        url: http://www.google.com/blank.html
+        interval: 6
+    path: ./proxy_providers/Sub2.yaml
     override:
-      additional-prefix: "[Sub2]"
-
-proxies:
-
+      additional-prefix: '[Sub2]'
+proxies: null
 proxy-groups:
-  - {name: Nyanpasu, type: select, proxies: [HK,JP,SG,US], use: [Sub1,Sub2], filter: "^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)"}
-  - {name: China, type: select, proxies: [DIRECT, Nyanpasu]}
-  - {name: BanAD, type: select, proxies: [REJECT, DIRECT]}
-  - {name: Final, type: select, proxies: [DIRECT, Nyanpasu]}
-  - {name: HK, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1], filter: ".*(HK)"}
-  - {name: JP, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1], filter: ".*(JP)"}
-  - {name: SG, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 300, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1], filter: ".*(SG)"}
-  - {name: US, type: url-test, interval: 6, tolerance: 20, lazy: true, disable-udp: false, timeout: 800, max-failed-times: 3, hidden: true, include-all-providers: true, use: [Sub1], filter: ".*(US)"}
-
+- name: 🚀 节点选择
+  type: select
+  proxies:
+  - 🇭🇰 香港自动
+  - 🇯🇵 日本自动
+  - 🇸🇬 狮城自动
+  - 🇺🇲 美国自动
+  use:
+  - Sub1
+  - Sub2
+  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
+- name: 🎥 Netflix
+  type: select
+  use:
+  - Sub1
+  - Sub2
+  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
+- name: 🐹 Disney
+  type: select
+  use:
+  - Sub1
+  - Sub2
+  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
+- name: 🎵 Spotify
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - 🇭🇰 香港自动
+  - 🇯🇵 日本自动
+  - 🇸🇬 狮城自动
+  - 🇺🇲 美国自动
+- name: 🎶 TikTok
+  type: select
+  proxies:
+  - 🚀 节点选择
+  - 🇭🇰 香港自动
+  - 🇯🇵 日本自动
+  - 🇸🇬 狮城自动
+  - 🇺🇲 美国自动
+- name: 🛸 IP归属地伪装
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - 🇭🇰 香港自动
+  - 🇯🇵 日本自动
+  - 🇸🇬 狮城自动
+  - 🇺🇲 美国自动
+  use:
+  - Sub1
+  - Sub2
+  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
+- name: 🤖 AI
+  type: select
+  proxies:
+  - 🚀 节点选择
+  use:
+  - Sub1
+  - Sub2
+  filter: .*(US)
+- name: 🌏 国内媒体
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🌍 国外媒体
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🍎 苹果服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: Ⓜ️ 微软服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 📢 谷歌服务
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🎮 游戏平台
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🎯 全球直连
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+- name: 📲 Telegram
+  type: load-balance
+  interval: 6
+  strategy: round-robin
+  tolerance: 50
+  lazy: true
+  url: http://www.google.com/blank.html
+  disable-udp: false
+  timeout: 300
+  max-failed-times: 3
+  # hidden: true
+  include-all-providers: true
+  use:
+  - Sub1
+  - Sub2
+  filter: .*(JP)
+- name: 🇭🇰 香港自动
+  type: url-test
+  interval: 6
+  tolerance: 50
+  lazy: true
+  url: http://www.google.com/blank.html
+  disable-udp: false
+  timeout: 300
+  max-failed-times: 3
+  # hidden: true
+  include-all-providers: true
+  use:
+  - Sub1
+  - Sub2
+  filter: ^(?!.*?IPLC).*(HK)
+- name: 🇯🇵 日本自动
+  type: url-test
+  interval: 6
+  tolerance: 50
+  lazy: true
+  url: http://www.google.com/blank.html
+  disable-udp: false
+  timeout: 300
+  max-failed-times: 3
+  # hidden: true
+  include-all-providers: true
+  use:
+  - Sub1
+  - Sub2
+  filter: .*(JP)
+- name: 🇸🇬 狮城自动
+  type: url-test
+  interval: 6
+  tolerance: 50
+  lazy: true
+  url: http://www.google.com/blank.html
+  disable-udp: false
+  timeout: 300
+  max-failed-times: 3
+  # hidden: true
+  include-all-providers: true
+  use:
+  - Sub
+  - Sub2
+  filter: .*(SG)
+- name: 🇺🇲 美国自动
+  type: url-test
+  interval: 6
+  tolerance: 50
+  lazy: true
+  url: http://www.google.com/blank.html
+  disable-udp: false
+  timeout: 800
+  max-failed-times: 3
+  # hidden: true
+  include-all-providers: true
+  use:
+  - Sub1
+  - Sub2
+  filter: .*(US)
 rule-providers:
-  LocalAreaNetwork:
-    <<: *c
-    path: './rule-providers/LocalAreaNetwork.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/LocalAreaNetwork.yaml'
-  UnBan:
-    <<: *c
-    path: './rule-providers/UnBan.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/UnBan.yaml'
-  BlockHttpDNS:
-    <<: *c
-    path: './rule-providers/BlockHttpDNS.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml'
-  BanAD:
-    <<: *c
-    path: './rule-providers/BanAD.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/BanAD.yaml'
-  Apple:
-    <<: *c
-    path: './rule-providers/Apple.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Apple.yaml'
-  Microsoft:
-    <<: *c
-    path: './rule-providers/Microsoft.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Microsoft.yaml'
-  GoogleCN:
-    <<: *c
-    path: './rule-providers/GoogleCN.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/GoogleCN.yaml'
+  Inside:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Inside.yaml
+    path: ./ruleset/Inside.yaml
+    interval: 86400
+  Outside:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Outside.yaml
+    path: ./ruleset/Outside.yaml
+    interval: 86400
+  OpenAI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./ruleset/OpenAI.yaml
+    interval: 86400
+  Lan:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Lan/Lan.yaml
+    path: ./ruleset/Lan.yaml
+    interval: 86400
+  IP:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/generated/rule-provider-proxy.yaml
+    path: ./ruleset/IP.yaml
+    interval: 86400
+  Netflix:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix_Classical.yaml
+    path: ./ruleset/Netflix.yaml
+    interval: 86400
+  Disney:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Disney/Disney.yaml
+    path: ./ruleset/Disney.yaml
+    interval: 86400
+  Spotify:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.yaml
+    path: ./ruleset/Spotify.yaml
+    interval: 86400
+  TikTok:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok.yaml
+    path: ./ruleset/TikTok.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
   ChinaMedia:
-    <<: *c
-    path: './rule-providers/ChinaMedia.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaMedia.yaml'
-  ProxyMedia:
-    <<: *c
-    path: './rule-providers/ProxyMedia.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyMedia.yaml'
-  ProxyGFWlist:
-    <<: *c
-    path: './rule-providers/ProxyGFWlist.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyGFWlist.yaml'
-  ChinaDomain:
-    <<: *d
-    path: './rule-providers/ChinaDomain.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaDomain.yaml'
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMedia/ChinaMedia.yaml
+    path: ./ruleset/ChinaMedia.yaml
+    interval: 86400
+  GlobalMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
+    path: ./ruleset/GlobalMedia.yaml
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical.yaml
+    path: ./ruleset/Apple.yaml
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+  Google:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
+    path: ./ruleset/google.yaml
+    interval: 86400
+  Game:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/Game.yaml
+    path: ./ruleset/Game.yaml
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+  direct:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
+    path: ./ruleset/direct.yaml
+    interval: 86400
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
   ChinaCompanyIp:
-    <<: *i
-    path: './rule-providers/ChinaCompanyIp.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaCompanyIp.yaml'
-  ChinaIp:
-    <<: *i
-    path: './rule-providers/ChinaIp.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaIp.yaml'
-  Download:
-    <<: *c
-    path: './rule-providers/Download.yaml'
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Download.yaml'
-
-
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaCompanyIp.yaml
+    path: ./ruleset/ChinaCompanyIp.yaml
+    interval: 86400
 rules:
-  - RULE-SET,LocalAreaNetwork,China
-  - RULE-SET,UnBan,China
-  - RULE-SET,BlockHttpDNS,BanAD
-  - RULE-SET,BanAD,BanAD
-  - RULE-SET,Apple,China
-  - RULE-SET,Microsoft,China
-  - RULE-SET,GoogleCN,China
-  - RULE-SET,ChinaMedia,China
-  - RULE-SET,ProxyMedia,Nyanpasu
-  - RULE-SET,ProxyGFWlist,Nyanpasu
-  - RULE-SET,ChinaDomain,China
-  - RULE-SET,ChinaCompanyIp,China
-  - RULE-SET,ChinaIp,China
-  - RULE-SET,Download,China
-  - GEOIP,CN,China
-  - MATCH,Final
+- DOMAIN,clash.razord.top,🎯 全球直连
+- DOMAIN,yacd.haishan.me,🎯 全球直连
+- RULE-SET,Inside,🎯 全球直连
+- RULE-SET,Outside,🚀 节点选择
+- RULE-SET,OpenAI,🤖 AI
+- RULE-SET,Lan,🎯 全球直连
+- RULE-SET,IP,🛸 IP归属地伪装
+- RULE-SET,Netflix,🎥 Netflix
+- RULE-SET,Disney,🐹 Disney
+- RULE-SET,Spotify,🎵 Spotify
+- RULE-SET,TikTok,🎶 TikTok
+- RULE-SET,Telegram,📲 Telegram
+- RULE-SET,ChinaMedia,🌏 国内媒体
+- RULE-SET,GlobalMedia,🌍 国外媒体
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,Google,📢 谷歌服务
+- RULE-SET,Game,🎮 游戏平台
+- RULE-SET,proxy,🚀 节点选择
+- RULE-SET,direct,🎯 全球直连
+- RULE-SET,cncidr,🎯 全球直连
+- RULE-SET,ChinaCompanyIp,🎯 全球直连
+- GEOIP,CN,🎯 全球直连
+- MATCH,🐟 漏网之鱼
