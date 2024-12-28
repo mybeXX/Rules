@@ -230,23 +230,11 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix_Classical.yaml
     path: ./ruleset/Netflix.yaml
     interval: 86400
-  Telegram:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.yaml
-    path: ./ruleset/Telegram.yaml
-    interval: 86400
   ChinaMedia:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMedia/ChinaMedia.yaml
     path: ./ruleset/ChinaMedia.yaml
-    interval: 86400
-  GlobalMedia:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml
-    path: ./ruleset/GlobalMedia.yaml
     interval: 86400
   Apple:
     type: http
@@ -309,10 +297,8 @@ rules:
 - RULE-SET,OpenAI,🤖 AI
 - RULE-SET,Lan,🎯 全球直连
 - RULE-SET,Netflix,🎥 Netflix
-- RULE-SET,Telegram,🚀 节点选择
 - RULE-SET,Game,🎮 游戏平台
 - RULE-SET,ChinaMedia,🎯 全球直连
-- RULE-SET,GlobalMedia,🚀 节点选择
 - RULE-SET,Apple,🍎 苹果服务
 - RULE-SET,Microsoft,Ⓜ️ 微软服务
 - RULE-SET,Google,🚀 节点选择
