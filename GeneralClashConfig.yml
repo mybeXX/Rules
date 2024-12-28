@@ -5,7 +5,7 @@ redir-port: 7893
 tproxy-port: 7894
 
 unified-delay: true
-geodata-mode: true
+geodata-mode: false
 geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
@@ -24,33 +24,14 @@ external-controller: 0.0.0.0:9090
 # external-ui-url: 'https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip'
 
 geox-url:
-  geoip: 'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/cn.dat'
-  geosite: 'https://github.com/Loyalsoldier/domain-list-custom/raw/refs/heads/release/geosite.dat'
-  # mmdb: 'https://geodata.kelee.one/Country-Masaiki.mmdb'
-  # asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/cn.dat'
+  # geosite: 'https://github.com/Loyalsoldier/domain-list-custom/raw/refs/heads/release/geosite.dat'
+  mmdb: 'https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb'
+  asn: 'https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb'
 
 profile:
   store-selected: true
   store-fake-ip: true
-
-sniffer:
-  enable: true
-  force-dns-mapping: true
-  parse-pure-ip: true
-  override-destination: true
-  sniff:
-    HTTP:
-      ports: [80, 8080-8880]
-      override-destination: true
-    TLS:
-      ports: [443, 8443]
-    QUIC:
-      ports: [443, 8443]
-  force-domain:
-    - +.v2ex.com
-
-  skip-domain:
-    - Mijia Cloud
 
 tun:
   enable: true
