@@ -290,8 +290,8 @@ rules:
 - RULE-SET,Google,🚀 节点选择
 - RULE-SET,Global_Domain,🚀 节点选择
 - RULE-SET,Global,🚀 节点选择
-- RULE-SET,ChinaMax_Domain,🎯 全球直连
-- RULE-SET,ChinaMax,🎯 全球直连
-- RULE-SET,ChinaMax_IP_No_IPv6,🎯 全球直连
-- GEOIP,CN,🎯 全球直连
+#- RULE-SET,ChinaMax_Domain,🎯 全球直连
+#- RULE-SET,ChinaMax,🎯 全球直连
+#- RULE-SET,ChinaMax_IP_No_IPv6,🎯 全球直连
+#- GEOIP,CN,🎯 全球直连
 - MATCH,🐟 漏网之鱼
