@@ -403,8 +403,7 @@ rule-providers:
     path: ./ruleset/ChinaCompanyIp.yaml
     interval: 86400
 rules:
-- DOMAIN,clash.razord.top,🎯 全球直连
-- DOMAIN,yacd.haishan.me,🎯 全球直连
+- RULE-SET,UI,🎯 全球直连
 - RULE-SET,Inside,🎯 全球直连
 - RULE-SET,Outside,🚀 节点选择
 - RULE-SET,OpenAI,🤖 AI
