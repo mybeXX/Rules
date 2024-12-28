@@ -200,18 +200,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/UI.yaml
     path: ./ruleset/UI.yaml
     interval: 8640
-  Inside:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Inside.yaml
-    path: ./ruleset/Inside.yaml
-    interval: 86400
-  Outside:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Outside.yaml
-    path: ./ruleset/Outside.yaml
-    interval: 86400
   OpenAI:
     type: http
     behavior: classical
@@ -292,8 +280,6 @@ rule-providers:
     interval: 86400
 rules:
 - RULE-SET,UI,🎯 全球直连
-- RULE-SET,Inside,🎯 全球直连
-- RULE-SET,Outside,🚀 节点选择
 - RULE-SET,OpenAI,🤖 AI
 - RULE-SET,Lan,🎯 全球直连
 - RULE-SET,Netflix,🎥 Netflix
