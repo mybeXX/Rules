@@ -181,6 +181,12 @@ proxy-groups:
   - Sub2
   filter: .*(US)
 rule-providers:
+  Proxy:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/Proxy.yaml
+    path: ./ruleset/Proxy.yaml
+    interval: 8640
   UI:
     type: http
     behavior: classical
@@ -225,7 +231,7 @@ rule-providers:
     interval: 86400
   ChinaDomain:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaDomain.yaml
     path: ./ruleset/ChinaDomain.yaml
     interval: 86400
@@ -236,6 +242,7 @@ rule-providers:
     path: ./ruleset/ChinaCompanyIp.yaml
     interval: 86400
 rules:
+- RULE-SET,Proxy,🚀 节点选择
 - RULE-SET,UI,🎯 全球直连
 - RULE-SET,LocalAreaNetwork,🎯 全球直连
 - RULE-SET,Netflix,🎥 Netflix
