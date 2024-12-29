@@ -64,7 +64,7 @@ proxy-providers:
       interval: 3600
       health-check:
         enable: true
-        url: https://twitter.com/favicon.ico
+        url: http://cp.cloudflare.com/generate_204
         interval: 6
     path: ./proxy_providers/Sub1.yaml
     override:
@@ -76,7 +76,7 @@ proxy-providers:
       interval: 3600
       health-check:
         enable: true
-        url: https://twitter.com/favicon.ico
+        url: http://cp.cloudflare.com/generate_204
         interval: 6
     path: ./proxy_providers/Sub2.yaml
     override:
@@ -125,7 +125,7 @@ proxy-groups:
   interval: 6
   tolerance: 50
   lazy: true
-  url: https://twitter.com/favicon.ico
+  url: http://cp.cloudflare.com/generate_204
   disable-udp: false
   timeout: 500
   max-failed-times: 3
@@ -140,7 +140,7 @@ proxy-groups:
   interval: 6
   tolerance: 50
   lazy: true
-  url: https://twitter.com/favicon.ico
+  url: http://cp.cloudflare.com/generate_204
   disable-udp: false
   timeout: 500
   max-failed-times: 3
@@ -155,7 +155,7 @@ proxy-groups:
   interval: 6
   tolerance: 50
   lazy: true
-  url: https://twitter.com/favicon.ico
+  url: http://cp.cloudflare.com/generate_204
   disable-udp: false
   timeout: 500
   max-failed-times: 3
@@ -170,7 +170,7 @@ proxy-groups:
   interval: 6
   tolerance: 50
   lazy: true
-  url: https://twitter.com/favicon.ico
+  url: http://cp.cloudflare.com/generate_204
   disable-udp: false
   timeout: 1000
   max-failed-times: 3
