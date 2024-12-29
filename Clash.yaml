@@ -100,19 +100,6 @@ proxy-groups:
   - Sub1
   - Sub2
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
-- name: 🤖 AI
-  type: select
-  proxies:
-  - 🚀 节点选择
-  use:
-  - Sub1
-  - Sub2
-  filter: .*(US)
-- name: 🎮 游戏平台
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
 - name: 🍎 苹果服务
   type: select
   proxies:
