@@ -200,12 +200,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/mybeXX/Rules/refs/heads/main/rule/UI.yaml
     path: ./ruleset/UI.yaml
     interval: 8640
-  OpenAI:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml
-    path: ./ruleset/OpenAI.yaml
-    interval: 86400
   Lan:
     type: http
     behavior: classical
@@ -215,140 +209,44 @@ rule-providers:
   Netflix:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix_Classical.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Netflix.yaml
     path: ./ruleset/Netflix.yaml
     interval: 86400
-  Spotify:
+  Apple:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
-    path: ./ruleset/Spotify.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Apple.yaml
+    path: ./ruleset/Apple.yaml
     interval: 86400
-  Twitter:
+  Microsoft:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
-    path: ./ruleset/Twitter.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
     interval: 86400
-  Telegram:
+  ProxyMedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
-    path: ./ruleset/Telegram.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyMedia.yaml
+    path: ./ruleset/ProxyMedia.yaml
     interval: 86400
-  Threads:
+  ProxyGFWlist:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Threads/Threads.yaml
-    path: ./ruleset/Threads.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyGFWlist.yaml
+    path: ./ruleset/ProxyGFWlist.yaml
     interval: 86400
-  Instagram:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml
-    path: ./ruleset/Instagram.yaml
-    interval: 86400
-  Facebook:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml
-    path: ./ruleset/Facebook.yaml
-    interval: 86400
-  GitHub:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
-    path: ./ruleset/GitHub.yaml
-    interval: 86400
-  # Tencent:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tencent/Tencent.yaml
-    # path: ./ruleset/Tencent.yaml
-    # interval: 86400
-  # NetEase:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEase/NetEase.yaml
-    # path: ./ruleset/NetEase.yaml
-    # interval: 86400
-  # Game:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/Game.yaml
-    # path: ./ruleset/Game.yaml
-    # interval: 86400
-  Bing:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml
-    path: ./ruleset/Bing.yaml
-    interval: 86400
-  ChinaMedia:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMedia/ChinaMedia.yaml
-    path: ./ruleset/ChinaMedia.yaml
-    interval: 86400
-  # Apple:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical.yaml
-    # path: ./ruleset/Apple.yaml
-    # interval: 86400
-  # Microsoft:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft.yaml
-    # path: ./ruleset/Microsoft.yaml
-    # interval: 86400
-  # Google:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.yaml
-    # path: ./ruleset/google.yaml
-    # interval: 86400
-  GlobalMedia_Domain:
+  ChinaDomain:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia_Domain.yaml
-    path: ./ruleset/GlobalMedia_Domain.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaDomain.yaml
+    path: ./ruleset/ChinaDomain.yaml
     interval: 86400
-  GlobalMedia:
+  ChinaCompanyIp:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia.yaml
-    path: ./ruleset/GlobalMedia.yaml
-    interval: 86400
-  Proxy_Domain:
-    type: http
-    behavior: domain
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy_Domain.yaml
-    path: ./ruleset/Proxy_Domain.yaml
-    interval: 86400
-  Proxy:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Proxy/Proxy.yaml
-    path: ./ruleset/Proxy.yaml
-    interval: 86400
-  # ProxyLite:
-    # type: http
-    # behavior: classical
-    # url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml
-    # path: ./ruleset/ProxyLite.yaml
-    # interval: 86400
-  ChinaNoMedia_Domain:
-    type: http
-    behavior: domain
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaNoMedia/ChinaNoMedia_Domain.yaml
-    path: ./ruleset/ChinaNoMedia_Domain.yaml
-    interval: 86400
-  ChinaNoMedia:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaNoMedia/ChinaNoMedia.yaml
-    path: ./ruleset/ChinaNoMedia.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ChinaCompanyIp.yaml
+    path: ./ruleset/ChinaCompanyIp.yaml
     interval: 86400
 rules:
 - RULE-SET,UI,🎯 全球直连
@@ -367,15 +265,11 @@ rules:
 # - RULE-SET,Game,🎮 游戏平台
 - RULE-SET,Bing,🚀 节点选择
 - RULE-SET,ChinaMedia,🎯 全球直连
-# - RULE-SET,Apple,🍎 苹果服务
-# - RULE-SET,Microsoft,Ⓜ️ 微软服务
-# - RULE-SET,Google,🚀 节点选择
-- RULE-SET,GlobalMedia_Domain,🚀 节点选择
-- RULE-SET,GlobalMedia,🚀 节点选择
-- RULE-SET,Proxy_Domain,🚀 节点选择
-- RULE-SET,Proxy,🚀 节点选择
-# - RULE-SET,ProxyLite,🚀 节点选择
-- RULE-SET,ChinaNoMedia_Domain,🎯 全球直连
-- RULE-SET,ChinaNoMedia,🎯 全球直连
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,ProxyMedia,🚀 节点选择
+- RULE-SET,ProxyGFWlist,🚀 节点选择
+- RULE-SET,ChinaDomain,🎯 全球直连
+- RULE-SET,ChinaCompanyIp,🎯 全球直连
 - GEOIP,CN,🎯 全球直连
 - MATCH,🐟 漏网之鱼
