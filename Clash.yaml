@@ -4,7 +4,7 @@ mixed-port: 7892
 redir-port: 7893
 tproxy-port: 7894
 unified-delay: true
-geodata-mode: true
+geodata-mode: false
 geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
@@ -18,10 +18,10 @@ ipv6: false
 udp: true
 external-controller: 0.0.0.0:9090
 geox-url:
-  geoip: 'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-only-cn-private.dat'
-  geosite: 'https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/refs/heads/release/geosite.dat'
-  # mmdb: 'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-only-cn-private.mmdb'
-  # asn: 'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb'
+  # geoip: 'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-only-cn-private.dat'
+  # geosite: 'https://raw.githubusercontent.com/Loyalsoldier/domain-list-custom/refs/heads/release/geosite.dat'
+  mmdb: 'https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb'
+  asn: 'https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb'
 profile:
   store-selected: true
   store-fake-ip: true
@@ -55,7 +55,7 @@ proxy-providers:
       interval: 3600
       health-check:
         enable: true
-        url: http://cp.cloudflare.com/generate_204
+        url: https://speed.cloudflare.com/__down?bytes=0
         interval: 6
     path: ./proxy_providers/Sub1.yaml
     override:
@@ -67,7 +67,7 @@ proxy-providers:
       interval: 3600
       health-check:
         enable: true
-        url: http://cp.cloudflare.com/generate_204
+        url: https://speed.cloudflare.com/__down?bytes=0
         interval: 6
     path: ./proxy_providers/Sub2.yaml
     override:
@@ -84,30 +84,26 @@ proxy-groups:
   use:
   - Sub1
   - Sub2
-  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
+  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官) # ^(?!.*?IPLC)^(?!.*?Direct)
 - name: 🎥 Netflix
   type: select
   use:
   - Sub1
   - Sub2
-  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官)
-- name: Ⓜ️ Bing
+  filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官) # ^(?!.*?IPLC)^(?!.*?Direct)
+- name: 🎶 TikTok
+  type: select
+  proxies:
+  - 🇯🇵 日本自动
+  use:
+  - Sub1
+  filter: (JP).*(Direct)
+- name: Ⓜ️ 微软服务
   type: select
   proxies:
   - DIRECT
   - 🚀 节点选择
-  - 🇭🇰 香港自动
-- name: 🍎 苹果微软
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
-- name: 🎯 全球直连
-  type: select
-  proxies:
-  - DIRECT
-  - 🚀 节点选择
-- name: 🐟 漏网之鱼
+- name: 🍎 苹果服务
   type: select
   proxies:
   - DIRECT
@@ -117,61 +113,53 @@ proxy-groups:
   interval: 6
   tolerance: 50
   lazy: true
-  url: http://cp.cloudflare.com/generate_204
+  url: https://speed.cloudflare.com/__down?bytes=0
   disable-udp: false
   timeout: 500
   max-failed-times: 3
-  hidden: true
   include-all-providers: true
   use:
   - Sub1
-  - Sub2
-  filter: ^(?!.*?IPLC).*(HK)
+  filter: ^(?!.*?IPLC)^(?!.*?Direct).*(HK)
 - name: 🇯🇵 日本自动
   type: url-test
   interval: 6
   tolerance: 50
   lazy: true
-  url: http://cp.cloudflare.com/generate_204
+  url: https://speed.cloudflare.com/__down?bytes=0
   disable-udp: false
   timeout: 500
   max-failed-times: 3
-  hidden: true
   include-all-providers: true
   use:
   - Sub1
-  - Sub2
-  filter: .*(JP)
+  filter: ^(?!.*?Direct).*(JP)
 - name: 🇸🇬 狮城自动
   type: url-test
   interval: 6
   tolerance: 50
   lazy: true
-  url: http://cp.cloudflare.com/generate_204
+  url: https://speed.cloudflare.com/__down?bytes=0
   disable-udp: false
   timeout: 500
   max-failed-times: 3
-  hidden: true
   include-all-providers: true
   use:
   - Sub1
-  - Sub2
-  filter: .*(SG)
+  filter: ^(?!.*?Direct).*(SG)
 - name: 🇺🇲 美国自动
   type: url-test
   interval: 6
   tolerance: 50
   lazy: true
-  url: http://cp.cloudflare.com/generate_204
+  url: https://speed.cloudflare.com/__down?bytes=0
   disable-udp: false
   timeout: 1000
   max-failed-times: 3
-  hidden: true
   include-all-providers: true
   use:
   - Sub1
-  - Sub2
-  filter: .*(US)
+  filter: ^(?!.*?Direct).*(US)
 rule-providers:
   UI:
     type: http
@@ -185,11 +173,53 @@ rule-providers:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/LocalAreaNetwork.yaml
     path: ./ruleset/LocalAreaNetwork.yaml
     interval: 86400
+  UnBan:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/UnBan.yaml
+    path: ./ruleset/UnBan.yaml
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/BanAD.yaml
+    path: ./ruleset/BanAD.yaml
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/BanProgramAD.yaml
+    path: ./ruleset/BanProgramAD.yaml
+    interval: 86400
+  OpenAi:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/OpenAi.yaml
+    path: ./ruleset/OpenAi.yaml
+    interval: 86400
+  TikTok:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/TikTok.yaml
+    path: ./ruleset/TikTok.yaml
+    interval: 86400
   Netflix:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Netflix.yaml
     path: ./ruleset/Netflix.yaml
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/SteamCN.yaml
+    path: ./ruleset/SteamCN.yaml
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/GoogleCN.yaml
+    path: ./ruleset/GoogleCN.yaml
     interval: 86400
   Bing:
     type: http
@@ -209,17 +239,23 @@ rule-providers:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Apple.yaml
     path: ./ruleset/Apple.yaml
     interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/Ruleset/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
   ProxyMedia:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyMedia.yaml
     path: ./ruleset/ProxyMedia.yaml
     interval: 86400
-  ProxyGFWlist:
+  ProxyLite:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyGFWlist.yaml
-    path: ./ruleset/ProxyGFWlist.yaml
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Providers/ProxyLite.yaml
+    path: ./ruleset/ProxyLite.yaml
     interval: 86400
   ChinaDomain:
     type: http
@@ -234,16 +270,23 @@ rule-providers:
     path: ./ruleset/ChinaCompanyIp.yaml
     interval: 86400
 rules:
-- RULE-SET,UI,🎯 全球直连
-- RULE-SET,LocalAreaNetwork,🎯 全球直连
+- RULE-SET,UI,DIRECT
+- RULE-SET,LocalAreaNetwork,DIRECT
+- RULE-SET,UnBan,DIRECT
+- RULE-SET,BanAD,REJECT
+- RULE-SET,BanProgramAD,REJECT
+- RULE-SET,SteamCN,DIRECT
+- RULE-SET,GoogleCN,DIRECT
+- RULE-SET,OpenAi,🇺🇲 美国自动
+- RULE-SET,TikTok,🎶 TikTok
 - RULE-SET,Netflix,🎥 Netflix
-- RULE-SET,Bing,Ⓜ️ Bing
-- RULE-SET,Microsoft,🍎 苹果微软
-- RULE-SET,Apple,🍎 苹果微软
+- RULE-SET,Bing,🚀 节点选择
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,Telegram,🚀 节点选择
 - RULE-SET,ProxyMedia,🚀 节点选择
-- RULE-SET,ProxyGFWlist,🚀 节点选择
-- RULE-SET,ChinaDomain,🎯 全球直连
-- RULE-SET,ChinaCompanyIp,🎯 全球直连
-- GEOIP,PRIVATE,🎯 全球直连
-- GEOIP,CN,🎯 全球直连
-- MATCH,🐟 漏网之鱼
+- RULE-SET,ProxyLite,🚀 节点选择
+- RULE-SET,ChinaDomain,DIRECT
+- RULE-SET,ChinaCompanyIp,DIRECT
+- GEOIP,CN,DIRECT,no-resolve
+- MATCH,🚀 节点选择
