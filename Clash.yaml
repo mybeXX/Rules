@@ -81,23 +81,22 @@ proxy-groups:
   - 🇯🇵 日本自动
   - 🇸🇬 狮城自动
   - 🇺🇲 美国自动
+  - 🇯🇵 低倍率
   use:
-  - Sub1
-  - Sub2
+  - 鱼云
+  - 卷王
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官) # ^(?!.*?IPLC)^(?!.*?Direct)
 - name: 🎥 Netflix
   type: select
   use:
-  - Sub1
-  - Sub2
+  - 鱼云
+  - 卷王
   filter: ^(?!.*?使用)^(?!.*?更新)^(?!.*?剩余)^(?!.*?到期)^(?!.*?不可)^(?!.*?官) # ^(?!.*?IPLC)^(?!.*?Direct)
 - name: 🎶 TikTok
   type: select
   proxies:
   - 🇯🇵 日本自动
-  use:
-  - Sub1
-  filter: (JP).*(Direct)
+  - 🇯🇵 低倍率
 - name: Ⓜ️ 微软服务
   type: select
   proxies:
@@ -108,6 +107,19 @@ proxy-groups:
   proxies:
   - DIRECT
   - 🚀 节点选择
+- name: 🇯🇵 低倍率
+  type: url-test
+  interval: 6
+  tolerance: 50
+  lazy: true
+  url: https://speed.cloudflare.com/__down?bytes=0
+  disable-udp: false
+  timeout: 500
+  max-failed-times: 3
+  include-all-providers: true
+  use:
+  - 鱼云
+  filter: (JP).*(Direct)
 - name: 🇭🇰 香港自动
   type: url-test
   interval: 6
@@ -119,8 +131,8 @@ proxy-groups:
   max-failed-times: 3
   include-all-providers: true
   use:
-  - Sub1
-  filter: ^(?!.*?IPLC)^(?!.*?Direct).*(HK)
+  - 鱼云
+  filter: ^(?!.*?IPLC).*(HK)
 - name: 🇯🇵 日本自动
   type: url-test
   interval: 6
@@ -132,8 +144,8 @@ proxy-groups:
   max-failed-times: 3
   include-all-providers: true
   use:
-  - Sub1
-  filter: ^(?!.*?Direct).*(JP)
+  - 鱼云
+  filter: .*(JP)
 - name: 🇸🇬 狮城自动
   type: url-test
   interval: 6
@@ -145,8 +157,8 @@ proxy-groups:
   max-failed-times: 3
   include-all-providers: true
   use:
-  - Sub1
-  filter: ^(?!.*?Direct).*(SG)
+  - 鱼云
+  filter: .*(SG)
 - name: 🇺🇲 美国自动
   type: url-test
   interval: 6
@@ -158,8 +170,8 @@ proxy-groups:
   max-failed-times: 3
   include-all-providers: true
   use:
-  - Sub1
-  filter: ^(?!.*?Direct).*(US)
+  - 鱼云
+  filter: .*(US)
 rule-providers:
   UI:
     type: http
